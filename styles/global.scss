@@ -1,0 +1,39 @@
+* {
+  &::selection {
+    color: white;
+    background: #ece5df;
+  }
+}
+
+body {
+  color: var(--black);
+  font-size: vw(20);
+  @include reg;
+  height: 100vh;
+  height: var(--vh);
+  overflow: hidden !important;
+  position: relative;
+  overscroll-behavior-y: none;
+  @include smooth-font;
+  @include media('<=#{$br1}') {
+    font-size: 16px;
+  }
+}
+
+.e-fixed {
+  overflow: hidden !important;
+}
+
+.js-sticky-area {
+  width: 140%;
+  height: 140%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin font-blur() {
+  filter: blur(var(--blur));
+  opacity: 0.5;
+}

@@ -1,0 +1,136 @@
+.hero {
+  height: var(--vh);
+}
+
+.home-1 {
+  color: white;
+  position: relative;
+}
+
+.home-1__img {
+  --margin: calc(100% - 0.9375vw * 2);
+  border-radius: var(--border-r);
+  @include coverdiv(absolute);
+  width: var(--margin);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: var(--margin);
+  overflow: hidden;
+  @include media('<=#{$ls}') {
+    --margin: calc(100% - 0.42vw * 2);
+  }
+}
+
+.home-1__container {
+  padding-top: vw(40);
+  grid-auto-flow: row;
+}
+
+.home-1__h1 {
+  width: 100%;
+  grid-auto-flow: row;
+  @include col-s(1);
+  @include col-end(12);
+}
+.home-1__h1-line {
+  display: block;
+  line-height: 1em;
+  &--1 {
+    @include col-s(1);
+    @include col-end(5);
+  }
+  &--2 {
+    @include col-s(8);
+    @include col-end(12);
+    @include italic;
+    position: relative;
+    left: vw(-11);
+    top: vw(-30);
+  }
+  &--3 {
+    @include col-s(4);
+    @include col-end(8);
+    position: relative;
+    left: vw(-11);
+    top: vw(-30);
+    filter: blur(0.35vw);
+  }
+}
+
+.home-1__desc {
+  @include col-s(8);
+  @include col-end(11);
+  @include medium;
+  font-size: vw(14);
+  line-height: 1em;
+  text-transform: uppercase;
+  max-width: vw(224);
+  position: relative;
+  top: vw(25);
+  @include media('<=#{$ls}') {
+    font-size: vw(16);
+  }
+}
+
+.home-1__btn {
+  @include col-s(4);
+  @include col-end(6);
+  margin-top: vh(75);
+  display: none;
+}
+
+.home-2__text {
+  @include col-s(1);
+  @include col-end(9);
+  max-width: vw(1073);
+}
+
+.home-2__img {
+  @include col-s(10);
+  @include col-end(12);
+  height: vw(669);
+  width: 100%;
+  .app-picture {
+    padding-bottom: toimg(583, 669);
+  }
+}
+
+.home-3__h-line--1 {
+  @include col-s(1);
+  @include col-end(12);
+}
+.home-3__h-line--2 {
+  @include col-s(4);
+  @include col-end(8);
+  @include font-blur;
+}
+.home-3__h-line--3 {
+  @include col-s(5);
+  @include col-end(12);
+  text-align: right;
+}
+
+.home-3__text {
+  margin-top: vw(96);
+  line-height: 1.5em;
+}
+.home-3__p--1 {
+  @include col-s(4);
+  @include col-end(7);
+}
+.home-3__p--2 {
+  @include col-s(9);
+  @include col-end(12);
+}
+
+.home-3__img-wrapper {
+  margin-top: vw(88);
+}
+.home-3__img {
+  @include col-s(4);
+  @include col-end(9);
+  .app-picture {
+    padding-bottom: toimg(887, 887);
+  }
+}

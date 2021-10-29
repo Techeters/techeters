@@ -1,0 +1,68 @@
+.container {
+  width: 100%;
+  position: relative;
+  padding-left: $g-offset;
+  padding-right: $g-offset;
+  @include media('<=#{$br1}') {
+    padding-left: $g-sm;
+    padding-right: $g-sm;
+  }
+  @include media('<=#{$br3}') {
+    padding-left: $g-s;
+    padding-right: $g-s;
+  }
+}
+
+.container--fh {
+  height: 100%;
+}
+
+.container--nm {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.grid {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: vw(30);
+  grid-auto-flow: column;
+  @include media('<=#{$br1}') {
+    column-gap: 30px;
+  }
+  @include media('<=#{$br4}') {
+    column-gap: 20px;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@mixin col-s($idx) {
+  grid-column-start: $idx;
+}
+
+@mixin col-end($idx) {
+  grid-column-end: $idx + 1;
+}
+
+.section {
+  padding-top: vw(300);
+  &--nm {
+    padding-top: 0;
+  }
+  &--pb {
+    padding-bottom: vw(300);
+  }
+  @include media('<=#{$br1}') {
+    padding-top: 200px;
+    &--pb {
+      padding-bottom: 200px;
+    }
+  }
+  @include media('<=#{$br3}') {
+    padding-top: 120px;
+    &--pb {
+      padding-bottom: 120px;
+    }
+  }
+}
