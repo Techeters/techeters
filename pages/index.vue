@@ -126,6 +126,43 @@
         class="home-6__content"
       />
     </section>
+    <section class="section home-7">
+      <div class="container home-7__container">
+        <h2 class="h2 home-7__h2 grid">
+          <span class="home-7__h2-line home-7__h2-line--1">We are</span>
+          <span class="home-7__h2-line home-7__h2-line--2 pixel-str"
+            >known</span
+          >
+          <span class="home-7__h2-line home-7__h2-line--3">and noteworthy</span>
+        </h2>
+        <ul class="home-7__items grid">
+          <li class="home-7__item">
+            <app-picture
+              class="home-7__img"
+              url="/img/thumb.jpg"
+              :is-webp="false"
+            />
+            <div class="home-7__item-h">Lorem ipsum</div>
+          </li>
+          <li class="home-7__item">
+            <app-picture
+              class="home-7__img"
+              url="/img/thumb.jpg"
+              :is-webp="false"
+            />
+            <div class="home-7__item-h">Lorem ipsum</div>
+          </li>
+          <li class="home-7__item">
+            <app-picture
+              class="home-7__img"
+              url="/img/thumb.jpg"
+              :is-webp="false"
+            />
+            <div class="home-7__item-h">Lorem ipsum</div>
+          </li>
+        </ul>
+      </div>
+    </section>
     <section class="section"></section>
   </main>
 </template>

@@ -206,3 +206,53 @@
 .home-6__content {
   margin-top: vw(120);
 }
+
+.home-7__h2-line--1 {
+  @include col-s(1);
+  @include col-end(4);
+}
+.home-7__h2-line--2 {
+  @include col-s(8);
+  @include col-end(12);
+}
+
+.home-7__h2-line--3 {
+  @include col-s(4);
+  @include col-end(12);
+  @include font-blur;
+}
+
+.home-7__items {
+  margin-top: vw(62);
+}
+
+.home-7__img {
+  height: vw(491);
+  .app-picture {
+    padding-bottom: toimg(430, 491);
+  }
+}
+
+.home-7__item {
+  &:nth-child(1) {
+    @include col-s(1);
+    @include col-end(3);
+  }
+  &:nth-child(2) {
+    @include col-s(4);
+    @include col-end(6);
+  }
+  &:nth-child(3) {
+    @include col-s(8);
+    @include col-end(12);
+    .home-7__img {
+      .app-picture {
+        padding-bottom: toimg(737, 491);
+      }
+    }
+  }
+}
+.home-7__item-h {
+  margin-top: 24px;
+  font-size: vw(24);
+}
