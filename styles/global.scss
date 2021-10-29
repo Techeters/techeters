@@ -1,12 +1,13 @@
 * {
   &::selection {
-    color: white;
-    background: #ece5df;
+    color: var(--bg);
+    background: var(--accent);
   }
 }
 
 body {
   color: var(--black);
+  background-color: var(--bg);
   font-size: vw(20);
   @include reg;
   line-height: 1.5em;
