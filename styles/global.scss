@@ -9,6 +9,7 @@ body {
   color: var(--black);
   font-size: vw(20);
   @include reg;
+  line-height: 1.5em;
   height: 100vh;
   height: var(--vh);
   overflow: hidden !important;

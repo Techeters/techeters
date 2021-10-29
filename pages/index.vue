@@ -68,6 +68,33 @@
         </div>
       </div>
     </section>
+    <section class="section home-4">
+      <div class="container home-4__container">
+        <ul class="home-4__items">
+          <li
+            v-for="(item, idx) in home4Items"
+            :key="item._id"
+            class="home-4__item home-4-item"
+          >
+            <div class="home-4-item__idx">0{{ idx + 1 }}</div>
+            <div class="home-4-item__line"></div>
+            <div class="home-4-item__content grid">
+              <h3 class="home-4-item__h">{{ item.title }}</h3>
+              <div class="home-4-item__right">
+                <p class="home-4-item__text">
+                  {{ item.text }}
+                </p>
+                <app-picture
+                  :url="item.img"
+                  :is-webp="false"
+                  class="home-4__img"
+                />
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
     <section class="section"></section>
   </main>
 </template>
@@ -75,8 +102,33 @@
 <script>
 import AppPicture from '~/components/AppPicture.vue'
 import replaceToPixel from '~/mixins/replaceToPixel.vue'
+import { keysGenerator } from '~/scripts/utils/keysGenerator'
 export default {
   components: { AppPicture },
   mixins: [replaceToPixel],
+  data() {
+    return {
+      home4Items: [
+        {
+          _id: keysGenerator(8),
+          title: 'Drop the CMO',
+          text: 'Chief Marketing Officers are a huge cost for small companies, even before building out a marketing department. A small in-house marketing team costs $40,000-$50,000 USD every month for salaries alone. Recruiting and software costs increase marketing department overhead costs.',
+          img: '/img/thumb.jpg',
+        },
+        {
+          _id: keysGenerator(8),
+          title: 'Tech companies build tech, not marketing',
+          text: 'Technology companies should focus on what they are best at, which is building technology. Many technology CEOs do not have the ability to manage marketing departments. Taking time away from product development can slow growth and harm progress',
+          img: '/img/thumb.jpg',
+        },
+        {
+          _id: keysGenerator(8),
+          title: 'Save time and increase quality',
+          text: 'Recruiting, operational development, and daily management leads to huge time constraints for companies. Quality is not guaranteed with an in-house team.  Trust your marketing efforts to the professionals to ensure high levels of quality control',
+          img: '/img/thumb.jpg',
+        },
+      ],
+    }
+  },
 }
 </script>
