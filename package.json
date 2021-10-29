@@ -17,7 +17,7 @@
     "@emotionagency/utils": "^0.0.7",
     "@nuxtjs/pwa": "^3.3.5",
     "core-js": "^3.9.1",
-    "gsap": "npm:@gsap/member",
+    "gsap": "^3.8.0",
     "nuxt": "^2.15.3",
     "supports-webp": "^2.0.1"
   },
