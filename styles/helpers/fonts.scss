@@ -25,7 +25,10 @@
 .h1 {
   @include reg;
   font-size: vw(182);
-  line-height: auto;
+  line-height: 1em;
+  @media screen and (max-height: 660px) {
+    font-size: vh(182);
+  }
 }
 
 .h2 {

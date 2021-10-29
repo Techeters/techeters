@@ -8,7 +8,7 @@
     :target="target && target"
     class="btn"
   >
-    <span class="btn__text js-sticky-item" data-power="40, 7"><slot /></span>
+    <span class="btn__text js-sticky-item" data-power="40, 10"><slot /></span>
     <span
       class="btn__bg js-sticky-item"
       data-power="60, 60"

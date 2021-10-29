@@ -45,6 +45,14 @@
   grid-column-end: $idx + 1;
 }
 
+@mixin row-s($idx) {
+  grid-row-start: $idx;
+}
+
+@mixin row-end($idx) {
+  grid-row-end: $idx + 1;
+}
+
 .section {
   padding-top: vw(300);
   &--nm {

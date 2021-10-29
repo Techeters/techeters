@@ -1,0 +1,16 @@
+.border-section {
+  --margin: 1.2vh;
+  padding: var(--margin);
+  position: relative;
+  overflow: hidden;
+  @include media('<=#{$ls}') {
+    --margin: 0.42vw;
+  }
+}
+
+.border-section__wrapper {
+  height: 100%;
+  position: relative;
+  border-radius: var(--border-r);
+  overflow: hidden;
+}

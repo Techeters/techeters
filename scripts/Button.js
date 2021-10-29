@@ -43,7 +43,7 @@ export default class Button {
 
       gsap.to(el, {
         delay: 0,
-        duration: 1,
+        duration: 1.5,
         y: s.y * +y,
         x: s.x * +x,
         scale,
@@ -56,7 +56,7 @@ export default class Button {
     this.$stickyItems.forEach(el => {
       gsap.to(el, {
         delay: 0,
-        duration: 1,
+        duration: 1.5,
         y: 0,
         x: 0,
         scale: 1,

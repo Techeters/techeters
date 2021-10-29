@@ -1,6 +1,6 @@
 <template>
   <main>
-    <section class="section section--nm hero home-1">
+    <border-section class="section section--nm hero home-1">
       <app-picture url="/img/hero.jpg" :is-webp="false" class="home-1__img" />
       <div class="container home-1__container grid">
         <div class="h1 home-1__h1 grid">
@@ -16,24 +16,16 @@
         </div>
         <app-button class="home-1__btn">Start your journey</app-button>
       </div>
-    </section>
+    </border-section>
     <section class="section home-2">
-      <div class="container home-2__container">
-        <div class="home-2__content grid">
-          <p class="home-2__text big-text">
-            Techeters is a marketing and creative agency that offers technology
+      <simple-section
+        text="Techeters is a marketing and creative agency that offers technology
             clients marketing solutions by combining creative approaches with
             analytic and technical execution. We partner with innovative
             technology companies that provide high level value to society and
-            make the world a better place.
-          </p>
-          <app-picture
-            url="/img/thumb.jpg"
-            :is-webp="false"
-            class="home-2__img"
-          />
-        </div>
-      </div>
+            make the world a better place."
+        img="/img/thumb.jpg"
+      />
     </section>
     <section class="section home-3">
       <div class="container home-3__container">
@@ -77,7 +69,7 @@
             class="home-4__item home-4-item"
           >
             <div class="home-4-item__idx">0{{ idx + 1 }}</div>
-            <div class="home-4-item__line"></div>
+            <div class="line home-4-item__line"></div>
             <div class="home-4-item__content grid">
               <h3 class="home-4-item__h">{{ item.title }}</h3>
               <div class="home-4-item__right">
@@ -95,16 +87,58 @@
         </ul>
       </div>
     </section>
+    <border-section class="home-5">
+      <app-picture
+        url="/img/gradient.jpg"
+        :is-webp="false"
+        class="home-5__img"
+      />
+      <div class="container home-5__container">
+        <div class="home-5__h-wrapper grid">
+          <h2
+            class="h2 home-5__h"
+            v-html="replaceToPixel('Services', 'e')"
+          ></h2>
+        </div>
+        <ul class="home-5__items">
+          <li
+            v-for="item in home5Items"
+            :key="item._id"
+            class="home-5__item home-5-item"
+          >
+            <div class="line line--white home-5-item__line"></div>
+            <div class="home-5-item__content grid">
+              <h3 class="h3 home-5-item__h">{{ item.title }}</h3>
+              <p class="home-5-item__text">{{ item.text }}</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </border-section>
+    <section class="section home-6">
+      <app-ticker
+        class="home-6__ticker"
+        text="Marketing is a combination of art and technology"
+        divider="&nbsp;&nbsp;•&nbsp;&nbsp;"
+      />
+      <simple-section
+        text="We handle clients with ease and allow clients to focus on their own operations without having to manage us."
+        class="home-6__content"
+      />
+    </section>
     <section class="section"></section>
   </main>
 </template>
 
 <script>
 import AppPicture from '~/components/AppPicture.vue'
+import AppTicker from '~/components/AppTicker.vue'
+import BorderSection from '~/components/BorderSection.vue'
+import SimpleSection from '~/components/SimpleSection.vue'
 import replaceToPixel from '~/mixins/replaceToPixel.vue'
 import { keysGenerator } from '~/scripts/utils/keysGenerator'
 export default {
-  components: { AppPicture },
+  components: { AppPicture, BorderSection, AppTicker, SimpleSection },
   mixins: [replaceToPixel],
   data() {
     return {
@@ -126,6 +160,23 @@ export default {
           title: 'Save time and increase quality',
           text: 'Recruiting, operational development, and daily management leads to huge time constraints for companies. Quality is not guaranteed with an in-house team.  Trust your marketing efforts to the professionals to ensure high levels of quality control',
           img: '/img/thumb.jpg',
+        },
+      ],
+      home5Items: [
+        {
+          _id: keysGenerator(8),
+          title: 'Branding',
+          text: 'It takes just 3 seconds for your first impression to be made. Making yourself look good is not vanity. Many opportunities are lost based on poor branding standards. We ensure that you not only look good, but do so consistently across all channels.',
+        },
+        {
+          _id: keysGenerator(8),
+          title: 'Full Marketing Services',
+          text: 'There are no half measures when it comes to marketing.  All things are connected in an online marketing effort. Picking and choosing services leads to failure. We ensure that all efforts flow together for the highest levels of efficiency and results',
+        },
+        {
+          _id: keysGenerator(8),
+          title: 'Marketing Strategy',
+          text: 'No one goes blindly into business ventures without a good plan.  Taking time to build out strong value propositions, distribution channels, content strategies and deep market research allows for strong marketing efforts. Gaining an edge on competition while finding gaps in the market takes business to the next level',
         },
       ],
     }

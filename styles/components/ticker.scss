@@ -1,0 +1,17 @@
+.ticker {
+  width: 100%;
+  @include reg;
+  font-size: vw(176);
+  line-height: 1.05em;
+  overflow: hidden;
+  @include media('<=#{$br2}') {
+    font-size: size(180, 60);
+  }
+}
+
+.ticker__items {
+  display: flex;
+  white-space: nowrap;
+  align-items: center;
+  width: fit-content;
+}
