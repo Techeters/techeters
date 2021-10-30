@@ -163,11 +163,12 @@
         </ul>
       </div>
     </section>
-    <section class="section"></section>
+    <app-footer />
   </main>
 </template>
 
 <script>
+import AppFooter from '~/components/AppFooter.vue'
 import AppPicture from '~/components/AppPicture.vue'
 import AppTicker from '~/components/AppTicker.vue'
 import BorderSection from '~/components/BorderSection.vue'
@@ -175,7 +176,13 @@ import SimpleSection from '~/components/SimpleSection.vue'
 import replaceToPixel from '~/mixins/replaceToPixel.vue'
 import { keysGenerator } from '~/scripts/utils/keysGenerator'
 export default {
-  components: { AppPicture, BorderSection, AppTicker, SimpleSection },
+  components: {
+    AppPicture,
+    BorderSection,
+    AppTicker,
+    SimpleSection,
+    AppFooter,
+  },
   mixins: [replaceToPixel],
   data() {
     return {

@@ -38,14 +38,17 @@
   background: var(--white);
   z-index: -2;
   display: block;
+  will-change: transform;
 }
 
 .btn__text {
   display: block;
+  will-change: transform;
 }
 
 .btn__border {
   position: absolute;
+  will-change: transform;
   top: 0;
   left: 0;
   width: 100%;

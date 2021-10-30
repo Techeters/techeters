@@ -35,7 +35,6 @@ export default {
       isFixed: false,
       friction: 0.06,
       stepSize: 0.9,
-      scrollbar: true,
       useKeyboard: false,
       raf,
     })
