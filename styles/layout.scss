@@ -31,7 +31,7 @@
   @include media('<=#{$br1}') {
     column-gap: 30px;
   }
-  @include media('<=#{$br4}') {
+  @include media('<=#{$br3}') {
     column-gap: 20px;
     grid-template-columns: repeat(4, 1fr);
   }
@@ -62,15 +62,9 @@
     padding-bottom: vw(300);
   }
   @include media('<=#{$br1}') {
-    padding-top: 200px;
+    padding-top: size(200, 120);
     &--pb {
-      padding-bottom: 200px;
-    }
-  }
-  @include media('<=#{$br3}') {
-    padding-top: 120px;
-    &--pb {
-      padding-bottom: 120px;
+      padding-bottom: size(200, 120);
     }
   }
 }

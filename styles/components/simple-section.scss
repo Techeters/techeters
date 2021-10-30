@@ -4,16 +4,38 @@
   @include row-s(1);
   @include row-end(2);
   max-width: vw(1073);
+  height: fit-content;
+  @include media('<=#{$br1}') {
+    @include col-s(1);
+    @include col-end(6);
+    max-width: none;
+  }
+  @include media('<=#{$br3}') {
+    @include col-s(1);
+    @include col-end(4);
+  }
 }
 
 .simple-section__img {
   @include col-s(9);
   @include col-end(12);
-  @include row-s(1);
-  @include row-end(2);
   height: vw(669);
   width: 100%;
   .app-picture {
     padding-bottom: toimg(583, 669);
+  }
+  @include media('>#{$br3}') {
+    @include row-s(1);
+    @include row-end(2);
+  }
+  @include media('<=#{$br1}') {
+    @include col-s(7);
+    @include col-end(12);
+    height: auto;
+  }
+  @include media('<=#{$br3}') {
+    @include col-s(1);
+    @include col-end(4);
+    margin-top: 40px;
   }
 }

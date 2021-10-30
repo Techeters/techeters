@@ -29,12 +29,18 @@
   @media screen and (max-height: 660px) {
     font-size: vh(182);
   }
+  @include media('<=#{$br1}') {
+    font-size: size(162, 72);
+  }
 }
 
 .h2 {
   @include reg;
   font-size: vw(176);
   line-height: 1em;
+  @include media('<=#{$br1}') {
+    font-size: size(126, 48);
+  }
 }
 
 .pixel-str {
@@ -46,17 +52,22 @@
   font-size: vw(60);
   line-height: 1.1em;
   display: inline-block;
-  text-indent: vw(460);
-  &::before {
-    content: '';
-    display: inline-block;
-    width: vw(30);
-    height: vw(30);
-    border-radius: 50%;
-    margin-right: vw(30);
-    position: absolute;
-    top: vw(16);
-    left: vw(455);
-    background-color: var(--black);
+  @include media('>#{$br1}') {
+    text-indent: vw(460);
+    &::before {
+      content: '';
+      display: inline-block;
+      width: vw(30);
+      height: vw(30);
+      border-radius: 50%;
+      margin-right: vw(30);
+      position: absolute;
+      top: vw(16);
+      left: vw(455);
+      background-color: var(--black);
+    }
+  }
+  @include media('<=#{$br1}') {
+    font-size: size(40, 24);
   }
 }

@@ -14,6 +14,7 @@
   @include media('<=#{$br1}') {
     width: 186px;
     height: 186px;
+    font-size: 16px;
   }
   &:hover {
     .btn__border {

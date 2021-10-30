@@ -18,7 +18,7 @@ body {
   overscroll-behavior-y: none;
   @include smooth-font;
   @include media('<=#{$br1}') {
-    font-size: 16px;
+    font-size: 14px;
   }
 }
 

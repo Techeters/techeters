@@ -1,3 +1,11 @@
+//breakpoints
+$uls: 2100px;
+$ls: 1366px;
+$br1: 1060px;
+$br2: 960px;
+$br3: 640px;
+$br4: 460px;
+
 :root {
   --black: #212022;
   --bg: #f4f4f4;
@@ -9,19 +17,14 @@
   --border-r: 40px;
   --vh: 100vh;
   --blur: 0.28vw;
+  @include media('<=#{$br1}') {
+    --border-r: 30px;
+  }
 }
 
 //screen config
-$maxWidth: 1920;
+$maxWidth: 1024;
 $minWidth: 375;
-
-//breakpoints
-$uls: 2100px;
-$ls: 1366px;
-$br1: 1060px;
-$br2: 960px;
-$br3: 768px;
-$br4: 460px;
 
 //easings
 $easing: cubic-bezier(0.16, 1, 0.3, 1);

@@ -2,6 +2,9 @@
   color: var(--white);
   min-height: var(--vh);
   margin-top: vw(300);
+  @include media('<=#{$br1}') {
+    margin-top: size(200, 120);
+  }
 }
 .footer__img {
   position: absolute;
@@ -14,19 +17,43 @@
 .footer-container {
   padding-top: vw(90);
   padding-bottom: vw(34);
+  @include media('<=#{$br1}') {
+    padding-top: size(76, 62);
+  }
 }
 
 .footer__h-line--1 {
   @include col-s(1);
   @include col-end(6);
+  @include media('<=#{$br1}') {
+    @include col-end(12);
+  }
+  @include media('<=#{$br3}') {
+    @include col-s(1);
+    @include col-end(4);
+  }
 }
 .footer__h-line--2 {
   @include col-s(4);
   @include col-end(12);
+  @include media('<=#{$br1}') {
+    @include col-s(3);
+  }
+  @include media('<=#{$br3}') {
+    @include col-s(1);
+    @include col-end(4);
+  }
 }
 
 .footer__content {
   margin-top: vw(132);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @include media('<=#{$br1}') {
+    margin-top: size(72, 36);
+  }
 }
 
 .footer__logo {
@@ -36,32 +63,49 @@
     display: block;
     max-width: 100%;
   }
+  @include media('<=#{$br1}') {
+    order: 2;
+    margin-top: size(52, 40);
+  }
 }
 
 .footer__social {
   @include col-s(4);
   @include col-end(6);
   width: fit-content;
+  @include media('<=#{$br1}') {
+    order: 3;
+    text-align: center;
+    margin-top: size(52, 40);
+  }
 }
 
 .footer__h3 {
   font-size: vw(32);
   @include medium;
   text-transform: uppercase;
+  @include media('<=#{$br1}') {
+    font-size: size(28, 20);
+  }
 }
 .footer-social__items {
   margin-top: vw(24);
+  @include media('<=#{$br1}') {
+    margin-top: size(24, 20);
+    font-size: 16px;
+  }
 }
 .footer-social__item {
   line-height: 1em;
   + {
     .footer-social__item {
       margin-top: vw(20);
+      @include media('<=#{$br1}') {
+        margin-top: 16px;
+      }
     }
   }
 }
-// .footer-social__link {
-// }
 
 .footer__form {
   @include col-s(8);
@@ -69,11 +113,24 @@
   .form {
     margin-top: vw(62);
   }
+  @include media('<=#{$br1}') {
+    order: 1;
+    width: 100%;
+    .form {
+      margin-top: size(52, 32);
+    }
+  }
 }
 
 .footer__bottom {
   margin-top: vw(78);
   color: var(--gray);
+  @include media('<=#{$br1}') {
+    margin-top: 78px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
 .footer__made-by {

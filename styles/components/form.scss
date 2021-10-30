@@ -10,6 +10,13 @@ $red: var(--red);
   grid-template-columns: repeat(6, 1fr);
   column-gap: vw(20);
   row-gap: vw(32);
+  @include media('<=#{$br1}') {
+    column-gap: 24px;
+    row-gap: 32px;
+  }
+  @include media('<=#{$br3}') {
+    display: block;
+  }
 }
 
 .input-wrapper {
@@ -18,6 +25,9 @@ $red: var(--red);
   color: var(--gray);
   text-transform: uppercase;
   font-size: vw(16);
+  @include media('<=#{$br1}') {
+    font-size: 16px;
+  }
   &:nth-of-type(1) {
     @include col-s(1);
     @include col-end(3);
@@ -42,6 +52,12 @@ $red: var(--red);
     @include col-s(1);
     @include col-end(6);
   }
+
+  @include media('<=#{$br3}') {
+    + .input-wrapper {
+      margin-top: 32px;
+    }
+  }
 }
 
 .input {
@@ -62,6 +78,9 @@ $red: var(--red);
       transform: translateY(-20px);
       font-size: vw(12);
       opacity: 0.8;
+      @include media('<=#{$br1}') {
+        font-size: 12px;
+      }
     }
   }
   &.js-error {
@@ -152,7 +171,7 @@ select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
   -webkit-text-fill-color: #fff;
-  box-shadow: 0 0 0px 1000px var(--bg) inset;
+  box-shadow: 0 0 0px 1000px rgba(0, 0, 0, 0.01) inset;
   transition: background-color 5000s ease-in-out 0s;
 }
 
@@ -183,4 +202,8 @@ select:-webkit-autofill:focus {
 .form__btn {
   margin-left: auto;
   margin-top: vw(28);
+  @include media('<=#{$br1}') {
+    margin-top: 28px;
+    margin-right: auto;
+  }
 }

@@ -4,8 +4,8 @@
   font-size: vw(176);
   line-height: 1.05em;
   overflow: hidden;
-  @include media('<=#{$br2}') {
-    font-size: size(180, 60);
+  @include media('<=#{$br1}') {
+    font-size: size(146, 52);
   }
 }
 

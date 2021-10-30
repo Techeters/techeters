@@ -11,7 +11,7 @@
 .app-grid__col {
   height: 100%;
   background-color: rgba(#b8b8b8, 0.2);
-  @include media('<=#{$br4}') {
+  @include media('<=#{$br3}') {
     &:nth-child(n + 5) {
       display: none;
     }

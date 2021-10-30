@@ -1,5 +1,17 @@
 .hero {
   height: var(--vh);
+  @include media('<=#{$br1}') {
+    height: auto;
+    .border-section__wrapper {
+      padding-bottom: 60px;
+    }
+  }
+  @include media('<=#{$br1}') {
+    height: auto;
+    .border-section__wrapper {
+      padding-bottom: 100px;
+    }
+  }
 }
 
 .home-1 {
@@ -12,14 +24,23 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: 100%;
+  height: calc(100% + 60px);
   overflow: hidden;
+  @include media('<=#{$br3}') {
+    height: calc(100% + 100px);
+  }
 }
 
 .home-1__container {
   padding-top: vw(20);
   grid-auto-flow: row;
   height: 100%;
+  @include media('<=#{$br1}') {
+    padding-top: 20px;
+  }
+  @include media('<=#{$br3}') {
+    padding-top: 72px;
+  }
 }
 
 .home-1__h1 {
@@ -27,6 +48,9 @@
   grid-auto-flow: row;
   @include col-s(1);
   @include col-end(12);
+  @include media('<=#{$br3}') {
+    @include col-end(4);
+  }
 }
 .home-1__h1-line {
   display: block;
@@ -36,6 +60,16 @@
     @include col-end(5);
     position: relative;
     left: vw(-11);
+    @include media('<=#{$br1}') {
+      @include col-s(1);
+      @include col-end(7);
+      margin-top: 0;
+    }
+    @include media('<=#{$br3}') {
+      @include col-s(1);
+      @include col-end(4);
+      margin-top: 20px;
+    }
   }
   &--2 {
     @include col-s(8);
@@ -44,6 +78,16 @@
     position: relative;
     left: vw(-11);
     margin-top: vw(-65);
+    @include media('<=#{$br1}') {
+      @include col-s(4);
+      @include col-end(12);
+      margin-top: 0;
+    }
+    @include media('<=#{$br3}') {
+      @include col-s(1);
+      @include col-end(4);
+      margin-left: auto;
+    }
   }
   &--3 {
     @include col-s(4);
@@ -53,6 +97,15 @@
     @include font-blur(0.35vw);
     opacity: 1 !important;
     margin-top: vw(-80);
+    @include media('<=#{$br1}') {
+      @include col-s(3);
+      @include col-end(12);
+      margin-top: 0;
+    }
+    @include media('<=#{$br3}') {
+      @include col-s(1);
+      @include col-end(4);
+    }
   }
 }
 
@@ -69,6 +122,19 @@
   @include media('<=#{$ls}') {
     font-size: vw(16);
   }
+  @include media('<=#{$br1}') {
+    font-size: size(14, 12);
+    max-width: 185px;
+    top: 36px;
+  }
+
+  @include media('<=#{$br3}') {
+    top: 0px;
+    @include col-s(1);
+    @include col-end(4);
+    @include row-s(1);
+    @include row-end(1);
+  }
 }
 
 .home-1__btn {
@@ -76,37 +142,96 @@
   @include col-end(6);
   margin-top: vh(40);
   // display: none;
+  @include media('<=#{$br1}') {
+    margin-top: 40px;
+    @include col-s(3);
+    @include col-end(5);
+  }
+  @include media('<=#{$br3}') {
+    @include col-s(1);
+    @include col-end(4);
+    margin: 0 auto;
+    margin-top: 60px;
+  }
+}
+
+.home-2 {
+  @include media('<=#{$br1}') {
+    padding-top: size(100, 52);
+  }
 }
 
 .home-3__h-line--1 {
   @include col-s(1);
   @include col-end(12);
+  @include media('<=#{$br3}') {
+    @include col-s(1);
+    @include col-end(4);
+  }
 }
 .home-3__h-line--2 {
   @include col-s(4);
   @include col-end(8);
   @include font-blur;
+  @include media('<=#{$br1}') {
+    @include col-s(2);
+    @include col-end(8);
+  }
+  @include media('<=#{$br3}') {
+    @include col-s(2);
+    @include col-end(4);
+  }
 }
 .home-3__h-line--3 {
   @include col-s(5);
   @include col-end(12);
   text-align: right;
+  @include media('<=#{$br1}') {
+    @include col-s(3);
+    @include col-end(12);
+  }
+  @include media('<=#{$br2}') {
+    @include col-s(1);
+  }
+  @include media('<=#{$br3}') {
+    @include col-end(4);
+  }
 }
 
 .home-3__text {
   margin-top: vw(96);
+  @include media('<=#{$br1}') {
+    margin-top: size(68, 32);
+  }
+  @include media('<=#{$br3}') {
+    display: block;
+  }
 }
 .home-3__p--1 {
   @include col-s(4);
   @include col-end(7);
+  @include media('<=#{$br1}') {
+    @include col-s(2);
+    @include col-end(6);
+  }
 }
 .home-3__p--2 {
   @include col-s(9);
   @include col-end(12);
+  @include media('<=#{$br1}') {
+    @include col-s(7);
+    @include col-end(11);
+  }
+  @include media('<=#{$br3}') {
+    margin-top: 28px;
+  }
 }
 
 .home-3__img-wrapper {
   margin-top: vw(88);
+  @include media('<=#{$br1}') {
+    margin-top: size(68, 56);
+  }
 }
 .home-3__img {
   @include col-s(4);
@@ -114,21 +239,42 @@
   .app-picture {
     padding-bottom: toimg(887, 887);
   }
+  @include media('<=#{$br1}') {
+    @include col-s(2);
+    @include col-end(11);
+  }
+  @include media('<=#{$br3}') {
+    @include col-s(1);
+    @include col-end(4);
+  }
 }
 
 .home-4__item {
   + .home-4__item {
     margin-top: vw(120);
+    @include media('<=#{$br1}') {
+      margin-top: size(100, 72);
+    }
   }
 }
 
 .home-4-item__idx {
   font-size: vw(40);
   margin-bottom: vw(20);
+  @include media('<=#{$br1}') {
+    font-size: size(40, 24);
+    margin-bottom: size(20, 16);
+  }
 }
 
 .home-4-item__content {
   margin-top: vw(32);
+  @include media('<=#{$br1}') {
+    margin-top: size(32, 28);
+  }
+  @include media('<=#{$br3}') {
+    display: block;
+  }
 }
 
 .home-4-item__h {
@@ -137,10 +283,16 @@
   line-height: 1em;
   @include col-s(1);
   @include col-end(6);
+  @include media('<=#{$br1}') {
+    font-size: size(60, 40);
+  }
 }
 .home-4-item__right {
-  @include col-s(8);
+  @include col-s(7);
   @include col-end(12);
+  @include media('<=#{$br3}') {
+    margin-top: 28px;
+  }
 }
 
 .home-4__img {
@@ -149,11 +301,17 @@
   .app-picture {
     padding-bottom: toimg(736, 565);
   }
+  @include media('<=#{$br1}') {
+    margin-top: size(52, 32);
+  }
 }
 
 .home-5 {
   color: var(--white);
   margin-top: vw(300);
+  @include media('<=#{$br1}') {
+    margin-top: size(200, 120);
+  }
 }
 
 .home-5__img {
@@ -170,25 +328,43 @@
   height: 100%;
   padding-top: vw(150);
   padding-bottom: vw(150);
+  @include media('<=#{$br1}') {
+    padding-top: size(112, 62);
+    padding-bottom: size(112, 62);
+  }
 }
 
 .home-5__h {
   @include col-s(8);
   @include col-end(12);
+  @include media('<=#{$br1}') {
+    @include col-s(1);
+    @include col-end(12);
+  }
 }
 
 .home-5__items {
   margin-top: vw(100);
+  @include media('<=#{$br1}') {
+    margin-top: size(72, 52);
+  }
 }
 
 .home-5__item {
   + .home-5__item {
     margin-top: vw(80);
+    @include media('<=#{$br1}') {
+      margin-top: size(72, 52);
+    }
   }
 }
 
 .home-5-item__content {
   margin-top: vw(16);
+  @include media('<=#{$br3}') {
+    margin-top: 16px;
+    display: block;
+  }
 }
 
 .home-5-item__h {
@@ -197,34 +373,67 @@
   @include reg;
   font-size: vw(48);
   line-height: 1em;
+  @include media('<=#{$br1}') {
+    font-size: size(48, 36);
+  }
 }
 
 .home-5-item__text {
   @include col-s(8);
   @include col-end(12);
+  @include media('<=#{$br1}') {
+    @include col-s(7);
+  }
+  @include media('<=#{$br3}') {
+    margin-top: 20px;
+  }
 }
 
 .home-6__content {
   margin-top: vw(120);
+  @include media('<=#{$br1}') {
+    margin-top: size(72, 48);
+  }
 }
 
 .home-7__h2-line--1 {
   @include col-s(1);
   @include col-end(4);
+  @include media('<=#{$br1}') {
+    @include col-end(6);
+  }
+  @include media('<=#{$br3}') {
+    @include col-end(4);
+  }
 }
 .home-7__h2-line--2 {
   @include col-s(8);
   @include col-end(12);
+  @include media('<=#{$br3}') {
+    @include col-s(2);
+    @include col-end(4);
+  }
 }
 
 .home-7__h2-line--3 {
   @include col-s(4);
   @include col-end(12);
   @include font-blur;
+  @include media('<=#{$br1}') {
+    @include col-s(1);
+  }
+  @include media('<=#{$br3}') {
+    @include col-end(4);
+  }
 }
 
 .home-7__items {
   margin-top: vw(62);
+  @include media('<=#{$br1}') {
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: size(52, 48);
+    display: block;
+  }
 }
 
 .home-7__img {
@@ -232,28 +441,42 @@
   .app-picture {
     padding-bottom: toimg(430, 491);
   }
+  @include media('<=#{$br1}') {
+    height: auto;
+    max-height: 384px;
+  }
 }
 
 .home-7__item {
-  &:nth-child(1) {
-    @include col-s(1);
-    @include col-end(3);
-  }
-  &:nth-child(2) {
-    @include col-s(4);
-    @include col-end(6);
-  }
-  &:nth-child(3) {
-    @include col-s(8);
-    @include col-end(12);
-    .home-7__img {
-      .app-picture {
-        padding-bottom: toimg(737, 491);
+  @include media('>#{$br1}') {
+    &:nth-child(1) {
+      @include col-s(1);
+      @include col-end(3);
+    }
+    &:nth-child(2) {
+      @include col-s(4);
+      @include col-end(6);
+    }
+    &:nth-child(3) {
+      @include col-s(8);
+      @include col-end(12);
+      .home-7__img {
+        .app-picture {
+          padding-bottom: toimg(737, 491);
+        }
       }
+    }
+  }
+  @include media('<=#{$br3}') {
+    + .home-7__item {
+      margin-top: 36px;
     }
   }
 }
 .home-7__item-h {
   margin-top: 24px;
   font-size: vw(24);
+  @include media('<=#{$br1}') {
+    font-size: size(24, 20);
+  }
 }
