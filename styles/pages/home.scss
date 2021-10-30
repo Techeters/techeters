@@ -432,6 +432,8 @@
   @include media('<=#{$br1}') {
     grid-template-columns: repeat(3, 1fr);
     margin-top: size(52, 48);
+  }
+  @include media('<=#{$br3}') {
     display: block;
   }
 }
