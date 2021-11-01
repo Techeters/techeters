@@ -1,5 +1,5 @@
 .border-section {
-  --margin: 0.84vw;
+  --margin: 0.62vw;
   padding: var(--margin);
   position: relative;
   overflow: hidden;
@@ -21,6 +21,7 @@
   overflow: hidden;
   @include media('<=#{$br3}') {
     border-radius: 0px;
+    min-height: var(--vh);
   }
   > .picture-wrapper {
     border-radius: 0px;

@@ -8,6 +8,7 @@
   }
   @include media('<=#{$br1}') {
     height: auto;
+    min-height: 100vh;
     .border-section__wrapper {
       padding-bottom: 100px;
     }
@@ -25,6 +26,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   height: calc(100% + 60px);
+  min-height: 100vh;
   overflow: hidden;
   @include media('<=#{$br3}') {
     height: calc(100% + 100px);

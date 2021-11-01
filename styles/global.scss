@@ -5,6 +5,12 @@
   }
 }
 
+html {
+  height: 100vh;
+  height: var(--vh);
+  overflow: hidden;
+}
+
 body {
   color: var(--black);
   background-color: var(--bg);

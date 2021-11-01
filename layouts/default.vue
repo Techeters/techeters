@@ -21,9 +21,9 @@ export default {
       this.$store.commit('app/setIsWebp', false)
     }
 
-    const { winSizes } = await import('~/scripts/utils/winSizes')
-    const { resize } = await import('@emotionagency/utils')
-    resize.on(winSizes)
+    const { setWinSizes } = await import('~/scripts/utils/winSizes')
+
+    setWinSizes()
 
     const { SmoothScroll } = await import('@emotionagency/smoothscroll')
     const { raf } = await import('@emotionagency/utils')
