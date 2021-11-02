@@ -55,6 +55,11 @@
           <app-picture
             url="/img/thumb.jpg"
             :is-webp="false"
+            :img-data="{
+              'data-gl': '',
+              'data-gl-parallax': '1',
+              'data-src': '/img/thumb.jpg',
+            }"
             class="home-3__img"
           />
         </div>
@@ -168,6 +173,8 @@
 </template>
 
 <script>
+import emitter from 'tiny-emitter/instance'
+
 import AppFooter from '~/components/AppFooter.vue'
 import AppPicture from '~/components/AppPicture.vue'
 import AppTicker from '~/components/AppTicker.vue'
@@ -223,6 +230,15 @@ export default {
           text: 'No one goes blindly into business ventures without a good plan.  Taking time to build out strong value propositions, distribution channels, content strategies and deep market research allows for strong marketing efforts. Gaining an edge on competition while finding gaps in the market takes business to the next level',
         },
       ],
+    }
+  },
+
+  async mounted() {
+    const { initImages } = await import('~/scripts/GL/Images/init')
+    if (window.scetch) {
+      initImages()
+    } else {
+      emitter.on('scetchCreated', initImages)
     }
   },
 }

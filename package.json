@@ -7,12 +7,13 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "images": "gulp images",
-    "fonts": "gulp fonts",
+    "fonts": "gulp fonts && gulp fi",
     "generate": "nuxt generate",
     "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
     "lint": "yarn lint:js"
   },
   "dependencies": {
+    "@emotionagency/glhtml": "^1.0.1",
     "@emotionagency/smoothscroll": "^0.1.8",
     "@emotionagency/utils": "^0.0.7",
     "@nuxtjs/pwa": "^3.3.5",
@@ -37,6 +38,7 @@
     "gulp-webp": "^4.0.1",
     "node-sass": "^5.0.0",
     "prettier": "^2.2.1",
-    "sass-loader": "^10.1.1"
+    "sass-loader": "^10.1.1",
+    "webpack-glsl-loader": "^1.0.1"
   }
 }

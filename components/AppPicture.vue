@@ -2,7 +2,7 @@
   <div class="picture-wrapper">
     <div class="app-picture">
       <picture>
-        <img :src="url" alt="" class="app-img" />
+        <img ref="image" :src="url" alt="" class="app-img" v-bind="imgData" />
         <source v-if="isWebp" :srcset="getWebpUrl" />
       </picture>
     </div>
@@ -19,6 +19,10 @@ export default {
     isWebp: {
       type: Boolean,
       default: true,
+    },
+    imgData: {
+      type: Object,
+      default: () => {},
     },
   },
 

@@ -3,11 +3,14 @@
     <app-grid />
     <div id="scroll-container">
       <Nuxt />
+      <div id="gl"></div>
     </div>
   </div>
 </template>
 
 <script>
+import emitter from 'tiny-emitter/instance'
+
 import AppGrid from '~/components/AppGrid.vue'
 export default {
   components: { AppGrid },
@@ -25,6 +28,8 @@ export default {
 
     setWinSizes()
 
+    const { Scetch } = await import('@emotionagency/glhtml')
+
     const { SmoothScroll } = await import('@emotionagency/smoothscroll')
     const { raf } = await import('@emotionagency/utils')
 
@@ -38,6 +43,15 @@ export default {
       useKeyboard: false,
       raf,
     })
+
+    if (screen.width > 960) {
+      window.scetch = new Scetch('#gl', {
+        raf,
+        dpr: window.devicePixelRatio,
+      })
+
+      emitter.emit('scetchCreated')
+    }
 
     const { default: NavbarPos } = await import('~/scripts/utils/navbarPos')
     this.navbarPos = new NavbarPos()
