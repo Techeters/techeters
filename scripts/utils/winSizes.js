@@ -1,4 +1,4 @@
-import { raf } from '@emotionagency/utils'
+import { resize } from '@emotionagency/utils'
 
 export const winSizes = () => {
   const vh = window.innerHeight
@@ -11,5 +11,5 @@ export const winSizes = () => {
 }
 
 export const setWinSizes = () => {
-  raf.on(winSizes)
+  resize.on(winSizes)
 }

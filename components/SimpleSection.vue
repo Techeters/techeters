@@ -5,14 +5,16 @@
         <p class="simple-section__text big-text">
           {{ text }}
         </p>
-        <app-picture :url="img" :is-webp="false" class="simple-section__img" />
+        <gl-picture :url="img" class="simple-section__img" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import GlPicture from './GlPicture.vue'
 export default {
+  components: { GlPicture },
   props: {
     img: {
       type: String,

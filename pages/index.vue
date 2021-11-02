@@ -1,22 +1,25 @@
 <template>
   <main>
-    <border-section class="section section--nm hero home-1">
-      <app-picture url="/img/hero.jpg" :is-webp="false" class="home-1__img" />
-      <div class="container home-1__container grid">
-        <div class="h1 home-1__h1 grid">
-          <span class="home-1__h1-line home-1__h1-line--1">We are</span>
-          <h1 class="home-1__desc">
-            Where technology and design come together
-          </h1>
-          <span
-            class="home-1__h1-line home-1__h1-line--2"
-            v-html="replaceToPixel('Techeters', 'ech')"
-          ></span>
-          <span class="home-1__h1-line home-1__h1-line--3">Media</span>
+    <div class="hero-wrapper">
+      <div class="home-1__img" />
+      <border-section class="section section--nm hero home-1">
+        <div id="gl-2" />
+        <div class="container home-1__container grid">
+          <div class="h1 home-1__h1 grid">
+            <span class="home-1__h1-line home-1__h1-line--1">We are</span>
+            <h1 class="home-1__desc">
+              Where technology and design come together
+            </h1>
+            <span
+              class="home-1__h1-line home-1__h1-line--2"
+              v-html="replaceToPixel('Techeters', 'ech')"
+            ></span>
+            <span class="home-1__h1-line home-1__h1-line--3">Media</span>
+          </div>
+          <app-button class="home-1__btn">Start your journey</app-button>
         </div>
-        <app-button class="home-1__btn">Start your journey</app-button>
-      </div>
-    </border-section>
+      </border-section>
+    </div>
     <section class="section home-2">
       <simple-section
         text="Techeters is a marketing and creative agency that offers technology
@@ -52,16 +55,7 @@
           </p>
         </div>
         <div class="home-3__img-wrapper grid">
-          <app-picture
-            url="/img/thumb.jpg"
-            :is-webp="false"
-            :img-data="{
-              'data-gl': '',
-              'data-gl-parallax': '1',
-              'data-src': '/img/thumb.jpg',
-            }"
-            class="home-3__img"
-          />
+          <gl-picture url="/img/thumb.jpg" class="home-3__img" />
         </div>
       </div>
     </section>
@@ -81,11 +75,7 @@
                 <p class="home-4-item__text">
                   {{ item.text }}
                 </p>
-                <app-picture
-                  :url="item.img"
-                  :is-webp="false"
-                  class="home-4__img"
-                />
+                <gl-picture :url="item.img" class="home-4__img" />
               </div>
             </div>
           </li>
@@ -142,27 +132,15 @@
         </h2>
         <ul class="home-7__items grid">
           <li class="home-7__item">
-            <app-picture
-              class="home-7__img"
-              url="/img/thumb.jpg"
-              :is-webp="false"
-            />
+            <gl-picture class="home-7__img" url="/img/thumb.jpg" />
             <div class="home-7__item-h">Lorem ipsum</div>
           </li>
           <li class="home-7__item">
-            <app-picture
-              class="home-7__img"
-              url="/img/thumb.jpg"
-              :is-webp="false"
-            />
+            <gl-picture class="home-7__img" url="/img/thumb.jpg" />
             <div class="home-7__item-h">Lorem ipsum</div>
           </li>
           <li class="home-7__item">
-            <app-picture
-              class="home-7__img"
-              url="/img/thumb.jpg"
-              :is-webp="false"
-            />
+            <gl-picture class="home-7__img" url="/img/thumb.jpg" />
             <div class="home-7__item-h">Lorem ipsum</div>
           </li>
         </ul>
@@ -182,6 +160,7 @@ import BorderSection from '~/components/BorderSection.vue'
 import SimpleSection from '~/components/SimpleSection.vue'
 import replaceToPixel from '~/mixins/replaceToPixel.vue'
 import { keysGenerator } from '~/scripts/utils/keysGenerator'
+import GlPicture from '~/components/GlPicture.vue'
 export default {
   components: {
     AppPicture,
@@ -189,6 +168,7 @@ export default {
     AppTicker,
     SimpleSection,
     AppFooter,
+    GlPicture,
   },
   mixins: [replaceToPixel],
   data() {
@@ -240,6 +220,22 @@ export default {
     } else {
       emitter.on('scetchCreated', initImages)
     }
+
+    const { Scetch } = await import('@emotionagency/glhtml')
+    const { raf } = await import('@emotionagency/utils')
+
+    const { default: Waves } = await import('@/scripts/GL/Waves/Waves')
+
+    window.scetch2 = new Scetch('#gl-2', {
+      dpr: window.devicePixelRatio,
+      nodes: [
+        {
+          $el: document.querySelector('.home-1__img'),
+          Figure: Waves,
+        },
+      ],
+      raf,
+    })
   },
 }
 </script>

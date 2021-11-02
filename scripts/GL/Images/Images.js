@@ -28,7 +28,8 @@ export default class Images extends Figure {
   }
 
   get borderRadius() {
-    const borderRadius = window.getComputedStyle(this.$el).borderRadius
+    const $el = this.$el.closest('.picture-wrapper')
+    const borderRadius = window.getComputedStyle($el).borderRadius
     return parseInt(borderRadius)
   }
 
