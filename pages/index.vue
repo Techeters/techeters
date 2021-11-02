@@ -11,7 +11,8 @@
               Where technology and design come together
             </h1>
             <span
-              class="home-1__h1-line home-1__h1-line--2"
+              class="home-1__h1-line home-1__h1-line--2 glitch"
+              data-alt-text="Techeters"
               v-html="replaceToPixel('Techeters', 'ech')"
             ></span>
             <span class="home-1__h1-line home-1__h1-line--3">Media</span>

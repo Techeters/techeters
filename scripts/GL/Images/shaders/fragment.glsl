@@ -11,6 +11,8 @@ uniform float uScale;
 uniform float uHover;
 uniform float uRadius;
 
+const float defaultScale = 0.9;
+
 vec4 tex(in vec2 st) {
    return texture2D(uTexture, st);
 }
@@ -22,8 +24,6 @@ float roundedBoxSDF(vec2 CenterPosition, vec2 Size, float Radius) {
 void main() {
 
     vec2 uv = vUv;
-
-    uv.y += vParallax;
 
    if(uv.y > 1.) {
       discard;
@@ -45,13 +45,13 @@ void main() {
    newUv += (sin(newUv.y * 10. + (uTime / 5.)) / 500.) * (uStrength);
    newUv += (sin(newUv.x * 10. + (uTime / 15.)) / 500.) * (uStrength);
 
-   vec2 p = (newUv - vec2(0.5, 0.5)) * (1.0 - uScale) + vec2(0.5, 0.5);
+   vec2 p = (newUv - vec2(0.5, 0.5)) * (defaultScale - uScale) + vec2(0.5, 0.5);
 
    vec4 img = tex(p);
 
    vec4 finalTexture = img;
 
-   vec4 color = mix(vec4(.0), vec4(finalTexture.xyz, smoothedAlpha), smoothedAlpha);
+   vec4 color = mix(vec4(0.0), vec4(finalTexture.xyz, smoothedAlpha), smoothedAlpha);
 
    gl_FragColor = color * uVisible;
 }

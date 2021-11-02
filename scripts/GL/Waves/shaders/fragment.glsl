@@ -3,8 +3,9 @@
 varying vec2 vUv;
 varying vec2 vResolution;
 uniform float uTime;
+uniform float uIntensity;
 
-const float cloudscale = 1.2;
+const float cloudscale = 2.;
 const float speed = .20;
 const float clouddark = 0.5;
 const float cloudlight = 0.3;
@@ -22,7 +23,7 @@ void main() {
   vec2 uv = p * vec2(vResolution.x / vResolution.y, 1.0);
 
   float time = slowTime * speed;
-  float q = fbm(uv * cloudscale * 0.5);
+  float q = fbm(uv * cloudscale * 0.2 * 0.5);
 
   //ridged noise shape
   float r = 0.0;

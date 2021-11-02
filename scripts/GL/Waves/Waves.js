@@ -1,5 +1,4 @@
 import { Figure } from '@emotionagency/glhtml'
-import emitter from 'tiny-emitter/instance'
 import gsap from 'gsap'
 
 import fragment from './shaders/fragment.glsl'
@@ -9,9 +8,8 @@ export default class Waves extends Figure {
   constructor(scene, renderer, $el) {
     super(scene, renderer, $el)
 
-    this.animateAlpha = this.animateAlpha.bind(this)
-
-    emitter.on('changeTheme', this.animateAlpha)
+    this.onClick = this.onClick.bind(this)
+    document.body.addEventListener('click', this.onClick)
   }
 
   createGeometry() {
@@ -22,44 +20,37 @@ export default class Waves extends Figure {
     const a = 0.5 / (2 / this.renderer.dpr)
     const uniforms = {
       uAlpha: { value: a },
+      uIntensity: { value: 1 },
     }
 
     super.createMaterial({ uniforms, vertex, fragment })
   }
 
-  // update() {
-  //   const top = this.$el.parentElement.getBoundingClientRect().y
+  onClick() {
+    gsap.to(this.material.uniforms.uIntensity, { duration: 1, value: 0.2 })
+  }
 
-  //   if (-top > window.innerHeight) {
-  //     this.rendering = false
-  //     this.destroy()
-  //   } else {
-  //     this.rendering = true
-  //   }
-
-  //   super.update()
-  // }
+  get isInView() {
+    const top = this.$el.parentElement.getBoundingClientRect().y
+    return -top < window.innerHeight
+  }
 
   resize() {
     if (!this.rendering) {
       return
     }
     this.setSizes()
+
+    if (!this.isInView) {
+      this.mesh.position.set(this.offset.x, this.offset.y, 0)
+    } else {
+      this.mesh.position.set(0, 0, 0)
+    }
+
     this.mesh.scale.set(this.sizes.x, this.sizes.y, 1)
 
     this.material.uniforms.size.value.x = this.getBoundingTexture.width
     this.material.uniforms.size.value.y = this.getBoundingTexture.height
-  }
-
-  animateAlpha(value) {
-    let to = value === 1 ? 0.1 : 0.5
-    to = to / (2 / this.renderer.dpr)
-
-    gsap.to(this.material.uniforms.uAlpha, {
-      duration: 1,
-      value: to,
-      overwrite: true,
-    })
   }
 
   createMesh() {
