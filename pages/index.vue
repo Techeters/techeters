@@ -6,16 +6,21 @@
         <div id="gl-2" />
         <div class="container home-1__container grid">
           <div class="h1 home-1__h1 grid">
-            <span class="home-1__h1-line home-1__h1-line--1">We are</span>
+            <span data-a-h class="home-1__h1-line home-1__h1-line--1"
+              >We are</span
+            >
             <h1 class="home-1__desc">
               Where technology and design come together
             </h1>
             <span
               class="home-1__h1-line home-1__h1-line--2 glitch"
               data-alt-text="Techeters"
+              data-a-h
               v-html="replaceToPixel('Techeters', 'ech')"
             ></span>
-            <span class="home-1__h1-line home-1__h1-line--3">Media</span>
+            <span data-a-h class="home-1__h1-line home-1__h1-line--3"
+              >Media</span
+            >
           </div>
           <app-button class="home-1__btn">Start your journey</app-button>
         </div>
@@ -184,13 +189,13 @@ export default {
         {
           _id: keysGenerator(8),
           title: 'Tech companies build tech, not marketing',
-          text: 'Technology companies should focus on what they are best at, which is building technology. Many technology CEOs do not have the ability to manage marketing departments. Taking time away from product development can slow growth and harm progress',
+          text: 'Technology companies should focus on what they are best at, which is building technology. Many technology CEOs do not have the ability to manage marketing departments. Taking time away from product development can slow growth and harm progress.',
           img: '/img/thumb.jpg',
         },
         {
           _id: keysGenerator(8),
           title: 'Save time and increase quality',
-          text: 'Recruiting, operational development, and daily management leads to huge time constraints for companies. Quality is not guaranteed with an in-house team.  Trust your marketing efforts to the professionals to ensure high levels of quality control',
+          text: 'Recruiting, operational development, and daily management leads to huge time constraints for companies. Quality is not guaranteed with an in-house team.  Trust your marketing efforts to the professionals to ensure high levels of quality control.',
           img: '/img/thumb.jpg',
         },
       ],
@@ -203,12 +208,12 @@ export default {
         {
           _id: keysGenerator(8),
           title: 'Full Marketing Services',
-          text: 'There are no half measures when it comes to marketing.  All things are connected in an online marketing effort. Picking and choosing services leads to failure. We ensure that all efforts flow together for the highest levels of efficiency and results',
+          text: 'There are no half measures when it comes to marketing.  All things are connected in an online marketing effort. Picking and choosing services leads to failure. We ensure that all efforts flow together for the highest levels of efficiency and results.',
         },
         {
           _id: keysGenerator(8),
           title: 'Marketing Strategy',
-          text: 'No one goes blindly into business ventures without a good plan.  Taking time to build out strong value propositions, distribution channels, content strategies and deep market research allows for strong marketing efforts. Gaining an edge on competition while finding gaps in the market takes business to the next level',
+          text: 'No one goes blindly into business ventures without a good plan.  Taking time to build out strong value propositions, distribution channels, content strategies and deep market research allows for strong marketing efforts. Gaining an edge on competition while finding gaps in the market takes business to the next level.',
         },
       ],
     }
@@ -237,6 +242,14 @@ export default {
       ],
       raf,
     })
+
+    // const { default: textAnimate } = await import('~/scripts/textAnimate')
+
+    // const h = document.querySelectorAll('[data-a-h]')
+
+    // h.forEach(el => {
+    //   textAnimate.in(el)
+    // })
   },
 }
 </script>

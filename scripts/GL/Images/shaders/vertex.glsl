@@ -3,8 +3,6 @@
 varying vec2 vUv;
 varying vec2 vDUv;
 varying vec2 vResolution;
-varying float vParallax;
-
 
 uniform float uStrength;
 uniform float uClicked;
@@ -24,11 +22,11 @@ void main() {
   vDUv = uv;
   vResolution = size.xy;
 
-  vParallax = parallax(uOffsetY, uScrollHeight, uParallax);
-
   vec4 newPosition = modelViewMatrix * vec4(pos, 1.0);
 
-  float scrollValue = -uStrength * 3.;
+  float scrollValue = -uStrength * 1.5;
+
+  newPosition.z += sin(newPosition.y / uViewportY * 2. * PI) * scrollValue;
 
   gl_Position = projectionMatrix * newPosition;
 }
