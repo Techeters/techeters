@@ -1,4 +1,5 @@
-import SplitType from 'split-type'
+// import SplitType from 'split-type'
+import Splitting from 'splitting'
 import gsap from 'gsap'
 
 function shuffle(array) {
@@ -16,7 +17,8 @@ const textAnimate = () => {
     if ($el.classList.contains('splitted')) {
       return
     }
-    new SplitType($el, { types: 'words, chars', tagName: 'span' })
+    // new SplitType($el, { types: 'chars', tagName: 'span' })
+    Splitting({ target: $el, by: 'chars' })
 
     $toAnimate = [...$el.querySelectorAll('.char')]
     $toAnimate = shuffle($toAnimate)
@@ -29,12 +31,12 @@ const textAnimate = () => {
       $el.style.opacity = 1
 
       gsap.to($toAnimate, {
-        duration: 2,
+        duration: 1.5,
         opacity: 1,
         ease: 'power2.out',
         scale: 1,
         filter: 'blur(0px)',
-        stagger: 0.1,
+        stagger: 0.2,
         overwrite: true,
       })
     },

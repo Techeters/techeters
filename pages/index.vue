@@ -243,13 +243,15 @@ export default {
       raf,
     })
 
-    // const { default: textAnimate } = await import('~/scripts/textAnimate')
+    const { default: textAnimate } = await import('~/scripts/textAnimate')
 
-    // const h = document.querySelectorAll('[data-a-h]')
+    const h = document.querySelectorAll('[data-a-h]')
 
-    // h.forEach(el => {
-    //   textAnimate.in(el)
-    // })
+    h.forEach((el, i) => {
+      setTimeout(() => {
+        textAnimate.in(el)
+      }, 200 * i)
+    })
   },
 }
 </script>

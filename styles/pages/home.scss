@@ -92,8 +92,7 @@
     @include col-end(8);
     position: relative;
     left: vw(-11);
-    @include font-blur(0.35vw);
-    opacity: 1 !important;
+    filter: blur(0.35vw);
     margin-top: vw(-80);
     @include media('<=#{$br1}') {
       @include col-s(3);
