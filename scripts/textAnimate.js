@@ -36,7 +36,7 @@ const textAnimate = () => {
         ease: 'power2.out',
         scale: 1,
         filter: 'blur(0px)',
-        stagger: 0.2,
+        stagger: 0.15,
         overwrite: true,
       })
     },

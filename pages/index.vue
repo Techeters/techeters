@@ -250,7 +250,7 @@ export default {
     h.forEach((el, i) => {
       setTimeout(() => {
         textAnimate.in(el)
-      }, 200 * i)
+      }, 150 * i)
     })
   },
 }
