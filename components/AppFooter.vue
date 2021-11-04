@@ -17,13 +17,13 @@
           <h3 class="footer__h3 footer-social__h">Social</h3>
           <ul class="footer-social__items">
             <li class="footer-social__item">
-              <a href="#" class="footer-social__link">Instagram</a>
+              <app-link to="#" class="footer-social__link">Instagram</app-link>
             </li>
             <li class="footer-social__item">
-              <a href="#" class="footer-social__link">Facebook</a>
+              <app-link to="#" class="footer-social__link">Facebook</app-link>
             </li>
             <li class="footer-social__item">
-              <a href="#" class="footer-social__link">LinkedIn</a>
+              <app-link to="#" class="footer-social__link">Linkedin</app-link>
             </li>
           </ul>
         </div>
@@ -33,8 +33,8 @@
         </div>
       </div>
       <div class="footer__bottom grid">
-        <a href="#" class="footer__made-by">made by emotion</a>
-        <a href="#" class="footer__pp">Privacy Policy</a>
+        <app-link to="#" class="footer__made-by">made by emotion</app-link>
+        <app-link to="#" class="footer__pp">Privacy Policy</app-link>
       </div>
     </div>
   </border-section>
@@ -44,10 +44,11 @@
 import AppLogo from './AppLogo.vue'
 import BorderSection from './BorderSection.vue'
 import AppForm from './AppForm/AppForm.vue'
+import AppLink from './AppLink.vue'
 import replaceToPixel from '~/mixins/replaceToPixel.vue'
 
 export default {
-  components: { BorderSection, AppLogo, AppForm },
+  components: { BorderSection, AppLogo, AppForm, AppLink },
   mixins: [replaceToPixel],
 }
 </script>
