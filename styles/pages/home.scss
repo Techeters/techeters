@@ -118,6 +118,7 @@
   top: vw(56);
   @include media('<=#{$ls}') {
     font-size: vw(16);
+    max-width: vw(220);
   }
   @include media('<=#{$br1}') {
     font-size: size(14, 12);

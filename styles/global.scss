@@ -103,6 +103,10 @@ body {
   pointer-events: none;
   overflow: hidden;
   z-index: 0;
+  canvas {
+    width: 100% !important;
+    height: 100% !important;
+  }
 }
 
 [data-gl] {
@@ -111,7 +115,7 @@ body {
 
 [data-a-h] {
   opacity: 0;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
   .char {
     display: inline-block;
     transform: scaleX(2);
