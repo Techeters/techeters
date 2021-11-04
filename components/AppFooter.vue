@@ -1,6 +1,6 @@
 <template>
   <border-section class="section footer" tag="footer">
-    <app-picture url="/img/gradient.jpg" :is-webp="false" class="footer__img" />
+    <div class="bg-gradient footer__img" />
     <div class="container footer-container">
       <h2 class="h2 footer__h grid">
         <span class="footer__h-line footer__h-line--1">Let's start</span>
@@ -41,14 +41,13 @@
 </template>
 
 <script>
-import AppPicture from './AppPicture.vue'
 import AppLogo from './AppLogo.vue'
 import BorderSection from './BorderSection.vue'
 import AppForm from './AppForm/AppForm.vue'
 import replaceToPixel from '~/mixins/replaceToPixel.vue'
 
 export default {
-  components: { BorderSection, AppPicture, AppLogo, AppForm },
+  components: { BorderSection, AppLogo, AppForm },
   mixins: [replaceToPixel],
 }
 </script>
