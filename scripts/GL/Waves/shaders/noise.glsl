@@ -1,4 +1,4 @@
-const mat2 m = mat2(1.9, 1.2, -1.2, 0.9);
+
 
 vec2 hash(vec2 p) {
   p = vec2(dot(p, vec2(127.1, 311.7)), dot(p, vec2(269.5, 183.3)));
@@ -18,8 +18,9 @@ float noise(in vec2 p) {
   return dot(n, vec3(70.0));
 }
 
-float fbm(vec2 n) {
-  float total = 0.0, amplitude = 0.5;
+
+float fbm(vec2 n, float amplitude,  mat2 m) {
+  float total = 0.0;
   for(int i = 0; i < 7; i++) {
     total += noise(n) * amplitude;
     n = m * n;

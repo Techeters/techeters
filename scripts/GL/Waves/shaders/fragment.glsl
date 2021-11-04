@@ -4,6 +4,7 @@ varying vec2 vUv;
 varying vec2 vResolution;
 uniform float uTime;
 uniform float uIntensity;
+uniform float uAlpha;
 
 const float cloudscale = 2.;
 const float speed = .20;
@@ -21,9 +22,11 @@ void main() {
 
   vec2 p = vUv;
   vec2 uv = p * vec2(vResolution.x / vResolution.y, 1.0);
+  mat2 m = mat2(1.9, 1.2 * uAlpha, -1.2, 0.9);
 
   float time = slowTime * speed;
-  float q = fbm(uv * cloudscale * 0.2 * 0.5);
+  float q = fbm(uv * cloudscale * 0.2 * 0.5, uIntensity / 2., m);
+
 
   //ridged noise shape
   float r = 0.0;
@@ -57,5 +60,5 @@ void main() {
 
   vec3 result = mix(skycolour, clamp(skytint * skycolour + cloudcolour, 0.0, 0.0), clamp(f, 0.0, 1.0));
 
-  gl_FragColor = vec4(result * 1.2, 1.0);
+  gl_FragColor = mix(vec4(0., 0., 0., 1.), vec4(result * 1.2, 1.), uAlpha);
 }

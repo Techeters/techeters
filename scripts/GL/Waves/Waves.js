@@ -17,17 +17,29 @@ export default class Waves extends Figure {
   }
 
   createMaterial() {
-    const a = 0.5 / (2 / this.renderer.dpr)
     const uniforms = {
-      uAlpha: { value: a },
-      uIntensity: { value: 1 },
+      uAlpha: { value: 0 },
+      uIntensity: { value: 5 },
     }
 
     super.createMaterial({ uniforms, vertex, fragment })
   }
 
   onClick() {
-    gsap.to(this.material.uniforms.uIntensity, { duration: 1, value: 0.2 })
+    this.changeIntensity()
+  }
+
+  changeIntensity() {
+    gsap.to(this.material.uniforms.uIntensity, {
+      duration: 2.5,
+      value: 1,
+      ease: 'power2.inOut',
+    })
+    gsap.to(this.material.uniforms.uAlpha, {
+      duration: 2.5,
+      value: 1,
+      ease: 'power2.out',
+    })
   }
 
   get isInView() {

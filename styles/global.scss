@@ -114,9 +114,37 @@ body {
   letter-spacing: -0.01em;
   .char {
     display: inline-block;
-    transform: scale(1.5);
+    transform: scaleX(2);
     opacity: 0;
     will-change: transform, filter;
     filter: blur(40px);
   }
+}
+
+[data-a-hl] {
+  opacity: 0;
+  letter-spacing: -0.01em;
+  line-height: 1em;
+  .e-line {
+    display: inline-block;
+    overflow: hidden;
+  }
+
+  .line-inner {
+    display: inline-block;
+    transform: translateY(110%);
+    opacity: 0;
+    will-change: transform, filter;
+  }
+}
+
+[data-a-t] {
+  transform: translateX(60px);
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+[data-a-o] {
+  opacity: 0;
+  will-change: opacity;
 }

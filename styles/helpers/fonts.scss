@@ -26,7 +26,7 @@
   @include reg;
   font-size: vw(182);
   line-height: 1em;
-  @media screen and (max-height: 660px) {
+  @media screen and (max-height: 540px) and (orientation: landscape) {
     font-size: vh(182);
   }
   @include media('<=#{$br1}') {

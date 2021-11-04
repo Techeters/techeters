@@ -20,6 +20,7 @@
     "core-js": "^3.9.1",
     "gsap": "^3.8.0",
     "nuxt": "^2.15.3",
+    "split-type": "^0.2.5",
     "splitting": "^1.0.6",
     "supports-webp": "^2.0.1"
   },

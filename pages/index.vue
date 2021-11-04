@@ -9,7 +9,7 @@
             <span data-a-h class="home-1__h1-line home-1__h1-line--1"
               >We are</span
             >
-            <h1 class="home-1__desc">
+            <h1 data-a-hl class="home-1__desc">
               Where technology and design come together
             </h1>
             <span
@@ -22,7 +22,9 @@
               >Media</span
             >
           </div>
-          <app-button class="home-1__btn">Start your journey</app-button>
+          <app-button data-a-o class="home-1__btn"
+            >Start your journey</app-button
+          >
         </div>
       </border-section>
     </div>
@@ -243,15 +245,11 @@ export default {
       raf,
     })
 
-    const { default: textAnimate } = await import('~/scripts/textAnimate')
+    const { animations } = await import('~/scripts/animations')
 
-    const h = document.querySelectorAll('[data-a-h]')
+    window.scetch2?.figures[0]?.changeIntensity()
 
-    h.forEach((el, i) => {
-      setTimeout(() => {
-        textAnimate.in(el)
-      }, 150 * i)
-    })
+    animations(document.querySelector('.hero-wrapper'))
   },
 }
 </script>

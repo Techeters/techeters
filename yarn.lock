@@ -10611,6 +10611,11 @@ split-string@^3.0.1, split-string@^3.0.2:
   dependencies:
     extend-shallow "^3.0.0"
 
+split-type@^0.2.5:
+  version "0.2.5"
+  resolved "https://registry.yarnpkg.com/split-type/-/split-type-0.2.5.tgz#dae919b64016a65a8ff4ce2cde0d98dc82b91d16"
+  integrity sha512-11o9ICDfvcG2cctbrBVfa2VOIa6+umUa32/4NkQ1CXQTZevucChhPpX7N6OzlVyHvuFOMMb04ohnOBaTJem+Ig==
+
 splitting@^1.0.6:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/splitting/-/splitting-1.0.6.tgz#9197b3fd600c5b56038fc06ae8b9f5933d392875"
