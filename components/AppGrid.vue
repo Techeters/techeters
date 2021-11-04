@@ -22,9 +22,9 @@ export default {
   },
   methods: {
     toggleView(e) {
-      // if (process.env.NODE_ENV === 'production') {
-      //   return
-      // }
+      if (process.env.NODE_ENV === 'production') {
+        return
+      }
       if (e.keyCode === 103 || e.keyCode === 1087) {
         this.isVisible = !this.isVisible
       }
