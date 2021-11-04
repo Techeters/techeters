@@ -27,13 +27,12 @@ void main() {
       discard;
    }
 
-    if(uv.y < 0.) {
+   if(uv.y < 0.) {
       discard;
    }
 
    vec2 newUv = uv;
    float angle = 1.55;
-
 
    newUv += (sin(newUv.y * 10. + (uTime / 5.)) / 500.) * (uStrength * 2.);
    newUv += (sin(newUv.x * 10. + (uTime / 15.)) / 500.) * (uStrength * 2.);
@@ -41,18 +40,18 @@ void main() {
    vec2 p = (newUv - vec2(0.5, 0.5)) * (defaultScale - uScale) + vec2(0.5, 0.5);
    vec2 offset = uStrength / 50.0 * vec2(cos(angle), sin(angle));
 
-
    float t = uStrength;
    float _Speed = 3.0;
-    
-   float res = t * _Speed * 3.0 + 0.01;
-    
-   p *= vResolution.xy / res;
-   p = floor(p);
-   p /= vResolution.xy / res;
-    
-   p += res * 0.002;
 
+   float res = t * _Speed * 3.0 + 0.01;
+
+   if(abs(res) > 0.) {
+      p *= vResolution.xy / res;
+      p = floor(p);
+      p /= vResolution.xy / res;
+
+      p += res * 0.002;
+   }
 
    vec4 cr = vec4(BlurredPixel(p + offset * 0.6, uTexture, uStrength), 1.0);
    vec4 cga = vec4(BlurredPixel(p, uTexture, uStrength), 1.0);

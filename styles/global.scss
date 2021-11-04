@@ -148,3 +148,37 @@ body {
   opacity: 0;
   will-change: opacity;
 }
+
+.bg-gradient {
+  &::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #00587c 0%, #003140 100%);
+    animation: gradientA 5s linear infinite;
+  }
+}
+
+@keyframes gradientA {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+
+  25% {
+    background-position: 0 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+    filter: hue-rotate(-5deg);
+  }
+
+  75% {
+    background-position: 50% 0%;
+  }
+
+  to {
+    filter: hue-rotate(0deg);
+  }
+}

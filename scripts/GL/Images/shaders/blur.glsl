@@ -11,8 +11,8 @@ float Gaussian(float sigma, float x) {
 }
 
 vec3 BlurredPixel(vec2 uv, sampler2D tex, float strength) {
-  float c_sigmaX = 5.0 * strength;
-  float c_sigmaY = 5.0 * strength;
+  float c_sigmaX = 5.0 * (strength + 0.01);
+  float c_sigmaY = 5.0 * (strength + 0.01);
 
   float total = 0.0;
   vec3 ret = vec3(0);

@@ -27,6 +27,8 @@ export const animations = async $el => {
     })
   }
 
-  tl.to($t, { duration: 1.5, x: 0, opacity: 1, ease, stagger: 0.2 }, 0.5)
-  tl.to($o, { duration: 1.5, opacity: 1, ease, stagger: 0.2 }, 0.5)
+  $t.length &&
+    tl.to($t, { duration: 1.5, x: 0, opacity: 1, ease, stagger: 0.2 }, 0.5)
+
+  $o.length && tl.to($o, { duration: 1.5, opacity: 1, ease, stagger: 0.2 }, 0.5)
 }

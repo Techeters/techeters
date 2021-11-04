@@ -91,11 +91,7 @@
       </div>
     </section>
     <border-section class="home-5">
-      <app-picture
-        url="/img/gradient.jpg"
-        :is-webp="false"
-        class="home-5__img"
-      />
+      <div class="bg-gradient home-5__img" />
       <div class="container home-5__container">
         <div class="home-5__h-wrapper grid">
           <h2
@@ -162,7 +158,6 @@
 import emitter from 'tiny-emitter/instance'
 
 import AppFooter from '~/components/AppFooter.vue'
-import AppPicture from '~/components/AppPicture.vue'
 import AppTicker from '~/components/AppTicker.vue'
 import BorderSection from '~/components/BorderSection.vue'
 import SimpleSection from '~/components/SimpleSection.vue'
@@ -171,7 +166,6 @@ import { keysGenerator } from '~/scripts/utils/keysGenerator'
 import GlPicture from '~/components/GlPicture.vue'
 export default {
   components: {
-    AppPicture,
     BorderSection,
     AppTicker,
     SimpleSection,
