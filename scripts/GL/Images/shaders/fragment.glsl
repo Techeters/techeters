@@ -53,9 +53,9 @@ void main() {
    }
 
 
-   vec4 cr = vec4(tex(p + offset * 0.6).xyz, 1.0);
-   vec4 cga = vec4(tex(p).xyz, 1.0);
-   vec4 cb = vec4(tex(p - offset * 0.7).xyz, 1.0);
+   vec4 cr = tex(p + offset * 0.2);
+   vec4 cga = tex(p + offset * 0.1);
+   vec4 cb = tex(p - offset * 0.3);
 
    vec4 img = vec4(cr.r, cga.g, cb.b, 1.);
 

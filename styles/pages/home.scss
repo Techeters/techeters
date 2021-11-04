@@ -97,7 +97,11 @@ main {
     position: relative;
     left: vw(-11);
     filter: blur(0.35vw);
+    transition: filter 0.7s ease;
     margin-top: vw(-80);
+    &:hover {
+      filter: blur(0px);
+    }
     @include media('<=#{$br1}') {
       @include col-s(3);
       @include col-end(12);

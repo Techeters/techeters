@@ -53,8 +53,8 @@ body {
 @mixin font-blur($blurScale: var(--blur)) {
   filter: blur($blurScale);
   opacity: 0.5;
+  width: fit-content;
   transition: opacity 0.7s ease, filter 0.7s ease;
-  cursor: zoom-in;
   &:hover {
     filter: blur(0px);
     opacity: 1;
