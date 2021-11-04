@@ -267,6 +267,7 @@ main {
 .home-4-item__idx {
   font-size: vw(40);
   margin-bottom: vw(20);
+  @include pixel;
   @include media('<=#{$br1}') {
     font-size: size(40, 24);
     margin-bottom: size(20, 16);
