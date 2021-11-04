@@ -164,6 +164,7 @@ import SimpleSection from '~/components/SimpleSection.vue'
 import replaceToPixel from '~/mixins/replaceToPixel.vue'
 import { keysGenerator } from '~/scripts/utils/keysGenerator'
 import GlPicture from '~/components/GlPicture.vue'
+import { delayPromise } from '~/scripts/utils/delay'
 export default {
   components: {
     BorderSection,
@@ -241,6 +242,7 @@ export default {
 
     const { animations } = await import('~/scripts/animations')
 
+    await delayPromise(500)
     window.scetch2?.figures[0]?.changeIntensity()
 
     animations(document.querySelector('.hero-wrapper'))
