@@ -61,7 +61,7 @@ main {
     @include col-s(1);
     @include col-end(5);
     position: relative;
-    left: vw(-11);
+    left: vw(-4);
     @include media('<=#{$br1}') {
       @include col-s(1);
       @include col-end(7);
@@ -95,7 +95,7 @@ main {
     @include col-s(4);
     @include col-end(8);
     position: relative;
-    left: vw(-11);
+    left: vw(-4);
     filter: blur(0.35vw);
     transition: filter 0.7s ease;
     margin-top: vw(-80);
@@ -295,8 +295,11 @@ main {
   }
 }
 .home-4-item__right {
-  @include col-s(7);
+  @include col-s(8);
   @include col-end(12);
+  @include media('<=#{$br1}') {
+    @include col-s(7);
+  }
   @include media('<=#{$br3}') {
     margin-top: 28px;
   }

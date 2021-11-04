@@ -25,6 +25,8 @@
 .footer__h-line--1 {
   @include col-s(1);
   @include col-end(6);
+  position: relative;
+  left: vw(-8);
   @include media('<=#{$br1}') {
     @include col-end(12);
   }

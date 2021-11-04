@@ -27,3 +27,12 @@
     border-radius: 0px;
   }
 }
+
+.border-section {
+  @include media('>#{$br1}') {
+    .container {
+      padding-left: calc(2.91667vw - var(--margin));
+      padding-right: calc(2.91667vw - var(--margin));
+    }
+  }
+}
