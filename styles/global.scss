@@ -292,3 +292,13 @@ body {
     opacity: 1;
   }
 }
+
+#gl-3 {
+  z-index: -2;
+  @include coverdiv(fixed);
+}
+.noisy {
+  // background-color: gray;
+  @include coverdiv(fixed);
+  pointer-events: none;
+}

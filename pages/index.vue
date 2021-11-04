@@ -1,5 +1,7 @@
 <template>
   <main>
+    <div id="gl-3"></div>
+    <div class="noisy"></div>
     <div class="hero-wrapper">
       <div class="home-1__img" />
       <border-section class="section section--nm hero home-1">
@@ -235,6 +237,21 @@ export default {
         {
           $el: document.querySelector('.home-1__img'),
           Figure: Waves,
+        },
+      ],
+      raf,
+    })
+
+    const { default: Noisy } = await import('@/scripts/GL/Noisy/Noisy')
+
+    const noisy = document.querySelector('.noisy')
+
+    window.scetch3 = new Scetch('#gl-3', {
+      dpr: window.devicePixelRatio,
+      nodes: [
+        {
+          $el: noisy,
+          Figure: Noisy,
         },
       ],
       raf,

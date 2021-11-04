@@ -1,5 +1,4 @@
 @import ./roundCorners;
-@import ./blur;
 
 varying vec2 vUv;
 varying vec2 vDUv;
@@ -53,11 +52,8 @@ void main() {
       p += res * 0.002;
    }
 
-   // vec4 cr = vec4(BlurredPixel(p + offset * 0.6, uTexture, uStrength), 1.0);
-   // vec4 cga = vec4(BlurredPixel(p, uTexture, uStrength), 1.0);
-   // vec4 cb = vec4(BlurredPixel(p - offset * 0.7, uTexture, uStrength), 1.0);
 
-      vec4 cr = vec4(tex(p + offset * 0.6).xyz, 1.0);
+   vec4 cr = vec4(tex(p + offset * 0.6).xyz, 1.0);
    vec4 cga = vec4(tex(p).xyz, 1.0);
    vec4 cb = vec4(tex(p - offset * 0.7).xyz, 1.0);
 
@@ -68,5 +64,4 @@ void main() {
    vec4 color = roundCorners(vDUv, vResolution, uRadius, finalTexture);
 
    gl_FragColor = color * uVisible;
-
 }
