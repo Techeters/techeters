@@ -27,7 +27,10 @@ void main() {
 
   vec2 mouse = uMouse * 0.0022;
   float time = slowTime * speed;
-  float q = fbm(uv * cloudscale * 0.2 * 0.5 + mouse, uIntensity / 2., m);
+
+  vec2 fUv = uv * cloudscale * 0.2 * 0.5 + mouse;
+  float intensity = uIntensity / 2. + mouse.x + mouse.y;
+  float q = fbm(fUv, intensity, m);
 
 
   //ridged noise shape
