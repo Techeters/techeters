@@ -25,7 +25,7 @@ void main() {
   vec2 uv = p * vec2(vResolution.x / vResolution.y, 1.0);
   mat2 m = mat2(1.9, 1.2 * uAlpha, -1.2, 0.9);
 
-  vec2 mouse = uMouse * 0.0032;
+  vec2 mouse = uMouse * 0.0022;
   float time = slowTime * speed;
   float q = fbm(uv * cloudscale * 0.2 * 0.5 + mouse, uIntensity / 2., m);
 
