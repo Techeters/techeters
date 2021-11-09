@@ -1,15 +1,23 @@
-import { Figure } from '@emotionagency/glhtml'
+import { Figure, Vec2 } from '@emotionagency/glhtml'
 import gsap from 'gsap'
 
 import fragment from './shaders/fragment.glsl'
 import vertex from './shaders/vertex.glsl'
 
 export default class Waves extends Figure {
+  mouse = {
+    destX: 0,
+    destY: 0,
+  }
+
   constructor(scene, renderer, $el) {
     super(scene, renderer, $el)
 
     this.onClick = this.onClick.bind(this)
+    this.onMousemove = this.onMousemove.bind(this)
+
     document.body.addEventListener('click', this.onClick)
+    window.addEventListener('mousemove', this.onMousemove)
   }
 
   createGeometry() {
@@ -20,6 +28,7 @@ export default class Waves extends Figure {
     const uniforms = {
       uAlpha: { value: 0 },
       uIntensity: { value: 5 },
+      uMouse: { type: 'v2', value: new Vec2(0, 0) },
     }
 
     super.createMaterial({ uniforms, vertex, fragment })
@@ -65,11 +74,30 @@ export default class Waves extends Figure {
     this.material.uniforms.size.value.y = this.getBoundingTexture.height
   }
 
+  onMousemove(e) {
+    const x = (e.clientX - window.innerWidth / 2) / (window.innerWidth / 2)
+    const y = (e.clientY - window.innerHeight / 2) / (window.innerHeight / 2)
+    this.mouse.destX = x
+    this.mouse.destY = -y
+  }
+
+  update() {
+    super.update()
+    if (this.material) {
+      const mouse = this.material.uniforms.uMouse.value
+
+      mouse.x += this.mouse.destX - mouse.x * 0.07
+      mouse.y += this.mouse.destY - mouse.y * 0.07
+    }
+  }
+
   createMesh() {
     super.createMesh()
   }
 
   destroy() {
+    window.removeEventListener('mousemove', this.onMousemove)
+
     super.destroy()
   }
 }

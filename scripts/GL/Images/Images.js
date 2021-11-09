@@ -7,11 +7,13 @@ import vertex from './shaders/vertex.glsl'
 
 export default class Images extends Figure {
   textureLoaded = false
+
   constructor(scene, renderer, $el) {
     super(scene, renderer, $el)
 
     this.onMouseEnter = this.onMouseEnter.bind(this)
     this.onMouseLeave = this.onMouseLeave.bind(this)
+
     this.$el.addEventListener('mouseenter', this.onMouseEnter)
     this.$el.addEventListener('mouseleave', this.onMouseLeave)
   }
@@ -36,18 +38,13 @@ export default class Images extends Figure {
   createMaterial() {
     const uniforms = {
       uTexture: { type: 't', value: this.texture },
-      uDistortion: { value: 0 },
       uScale: { value: 0 },
       uHover: { value: 0 },
-      uCompleted: { value: 0 },
       uStrength: { value: 0 },
       uViewportY: { value: window.innerHeight },
       uScrollPos: { value: 0 },
-      uScrollHeight: { value: 0 },
-      uOffsetY: { value: 0 },
       uVisible: { value: 1 },
       uRadius: { value: this.borderRadius },
-      uParallax: { value: +this.$el.dataset.glParallax },
     }
 
     super.createMaterial({ uniforms, vertex, fragment })
@@ -66,13 +63,6 @@ export default class Images extends Figure {
       this.material.uniforms.uClicked.value = 1
       this.material.uniforms.uParallax.value = 1
     }
-  }
-
-  get scrollHeight() {
-    return (
-      window.ss?.max + window.innerHeight ||
-      document.querySelector('#scroll-container').scrollHeight
-    )
   }
 
   get scrollPos() {
@@ -116,10 +106,6 @@ export default class Images extends Figure {
 
   resize() {
     super.resize()
-
-    if (this.material) {
-      this.material.uniforms.uViewportY.value = window.innerHeight
-    }
   }
 
   update() {
@@ -128,8 +114,6 @@ export default class Images extends Figure {
       let strength = this.velocity / 250
       strength = lerp(this.material.uniforms.uStrength.value, strength, 0.08)
       this.material.uniforms.uStrength.value = strength
-      this.material.uniforms.uScrollHeight.value = this.scrollHeight
-      this.material.uniforms.uOffsetY.value = this.offset.y
     }
   }
 

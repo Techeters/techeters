@@ -5,6 +5,7 @@ varying vec2 vResolution;
 uniform float uTime;
 uniform float uIntensity;
 uniform float uAlpha;
+uniform vec2 uMouse;
 
 const float cloudscale = 2.;
 const float speed = .20;
@@ -24,8 +25,9 @@ void main() {
   vec2 uv = p * vec2(vResolution.x / vResolution.y, 1.0);
   mat2 m = mat2(1.9, 1.2 * uAlpha, -1.2, 0.9);
 
+  vec2 mouse = uMouse * 0.0032;
   float time = slowTime * speed;
-  float q = fbm(uv * cloudscale * 0.2 * 0.5, uIntensity / 2., m);
+  float q = fbm(uv * cloudscale * 0.2 * 0.5 + mouse, uIntensity / 2., m);
 
 
   //ridged noise shape

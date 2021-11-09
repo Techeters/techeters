@@ -1,15 +1,9 @@
-@import ./parallax;
-
 varying vec2 vUv;
 varying vec2 vDUv;
 varying vec2 vResolution;
 
 uniform float uStrength;
-uniform float uClicked;
 uniform float uViewportY;
-uniform float uScrollHeight;
-uniform float uOffsetY;
-uniform float uParallax;
 
 float roundedBoxSDF(vec2 CenterPosition, vec2 Size, float Radius) {
     return length(max(abs(CenterPosition)-Size+Radius,0.0))-Radius;
