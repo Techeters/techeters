@@ -1,5 +1,5 @@
 import gsap from 'gsap'
-import { TextAnimate } from './TextAnimate'
+import { TextAnimate } from './utils/TextAnimate'
 import { delayPromise } from './utils/delay'
 
 const ease = 'power2.out'

@@ -1,7 +1,7 @@
 import Splitting from 'splitting'
 import SplitType from 'split-type'
 import gsap from 'gsap'
-import { shuffle } from './utils/shuffle'
+import { shuffle } from './shuffle'
 
 export class TextAnimate {
   static prepare($el, by = 'chars') {
