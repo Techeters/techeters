@@ -6,7 +6,6 @@ import { shuffle } from './utils/shuffle'
 export class TextAnimate {
   static prepare($el, by = 'chars') {
     let $toAnimate
-
     if ($el.classList.contains('splitted')) {
       return
     }
