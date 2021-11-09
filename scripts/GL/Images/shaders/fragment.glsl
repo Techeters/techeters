@@ -39,7 +39,7 @@ void main() {
    vec2 p = (newUv - vec2(0.5, 0.5)) * (defaultScale - uScale) + vec2(0.5, 0.5);
    vec2 offset = uStrength / 50.0 * vec2(cos(angle), sin(angle));
 
-   float t = uStrength;
+   float t = uStrength + ((1. - uVisible) * 10.);
    float _Speed = 3.0;
 
    float res = t * _Speed * 3.0 + 0.01;

@@ -86,8 +86,8 @@ export default class Waves extends Figure {
     if (this.material) {
       const mouse = this.material.uniforms.uMouse.value
 
-      mouse.x += this.mouse.destX - mouse.x * 0.07
-      mouse.y += this.mouse.destY - mouse.y * 0.07
+      mouse.x += this.mouse.destX - mouse.x * 0.03
+      mouse.y += this.mouse.destY - mouse.y * 0.03
     }
   }
 
