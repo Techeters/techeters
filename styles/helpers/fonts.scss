@@ -53,7 +53,12 @@
   line-height: 1.1em;
   display: inline-block;
   @include media('>#{$br1}') {
-    text-indent: vw(460);
+    .big-text__inner {
+      display: inline-block;
+      &:not(.splitted) {
+        text-indent: vw(460);
+      }
+    }
     &::before {
       content: '';
       display: inline-block;
@@ -70,4 +75,19 @@
   @include media('<=#{$br1}') {
     font-size: size(40, 24);
   }
+}
+
+.word-revealer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--black);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.word-text {
+  opacity: 0;
 }
