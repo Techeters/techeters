@@ -106,17 +106,17 @@ body {
 [data-a-hl] {
   opacity: 0;
   letter-spacing: -0.01em;
-  line-height: 1em;
   .e-line {
     display: inline-block;
     overflow: hidden;
+    line-height: 1.04em;
   }
 
   .line-inner {
     display: inline-block;
     transform: translateY(110%);
     opacity: 0;
-    will-change: transform, filter;
+    will-change: transform, opacity;
   }
 }
 
@@ -134,6 +134,25 @@ body {
 [data-a-d] {
   opacity: 0;
   will-change: opacity;
+  .word-revealer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--black);
+    opacity: 0;
+    pointer-events: none;
+  }
+  .word-text {
+    opacity: 0;
+  }
+}
+
+[data-a-d='white'] {
+  .word-revealer {
+    background-color: var(--white);
+  }
 }
 
 [data-a-l] {

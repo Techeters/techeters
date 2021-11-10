@@ -11,7 +11,7 @@
             <span data-a-h class="home-1__h1-line home-1__h1-line--1">
               We are
             </span>
-            <h1 data-a-d class="home-1__desc">
+            <h1 data-a-d="white" class="home-1__desc">
               Where technology and design come together
             </h1>
             <span
@@ -37,7 +37,7 @@
             analytic and technical execution. We partner with innovative
             technology companies that provide high level value to society and
             make the world a better place."
-        img="/img/thumb.jpg"
+        img="/img/1.jpg"
       />
     </section>
     <section data-in-view class="section home-3">
@@ -56,13 +56,13 @@
           />
         </h2>
         <div class="home-3__text grid">
-          <p data-a-o class="home-3__p home-3__p--1">
+          <p data-a-t class="home-3__p home-3__p--1">
             Great marketing is the utilization of creative designs with advance
             technology to distribute entertaining content to the right
             audiences. We utilize top marketing software along with data
             collection and analytics to stay ahead of the game.
           </p>
-          <p data-a-o class="home-3__p home-3__p--2">
+          <p data-a-t class="home-3__p home-3__p--2">
             We respect creative individuals to express themselves through their
             art to encourage beautiful creatives for your brand. We also stay on
             top of new marketing technologies to help distribute, manage and
@@ -70,7 +70,7 @@
           </p>
         </div>
         <div class="home-3__img-wrapper grid">
-          <gl-picture url="/img/thumb.jpg" class="home-3__img" />
+          <gl-picture url="/img/2.jpg" class="home-3__img" />
         </div>
       </div>
     </section>
@@ -86,7 +86,7 @@
             <div data-a-d class="home-4-item__idx">0{{ idx + 1 }}</div>
             <div data-a-l class="line home-4-item__line"></div>
             <div class="home-4-item__content grid">
-              <h3 data-a-hl class="home-4-item__h">{{ item.title }}</h3>
+              <h3 data-a-d class="home-4-item__h">{{ item.title }}</h3>
               <div class="home-4-item__right">
                 <p data-a-t class="home-4-item__text">
                   {{ item.text }}
@@ -115,7 +115,9 @@
           >
             <div class="line line--white home-5-item__line"></div>
             <div class="home-5-item__content grid">
-              <h3 class="h3 home-5-item__h">{{ item.title }}</h3>
+              <h3 class="h3 home-5-item__h">
+                {{ item.title }}
+              </h3>
               <p class="home-5-item__text">{{ item.text }}</p>
             </div>
           </li>
@@ -131,29 +133,36 @@
       <simple-section
         text="We handle clients with ease and allow clients to focus on their own operations without having to manage us."
         class="home-6__content"
+        img="/img/6.jpg"
       />
     </section>
-    <section class="section home-7">
+    <section data-in-view class="section home-7">
       <div class="container home-7__container">
         <h2 class="h2 home-7__h2 grid">
-          <span class="home-7__h2-line home-7__h2-line--1">We are</span>
-          <span class="home-7__h2-line home-7__h2-line--2 pixel-str"
+          <span data-a-h class="home-7__h2-line home-7__h2-line--1"
+            >We are</span
+          >
+          <span data-a-h class="home-7__h2-line home-7__h2-line--2 pixel-str"
             >known</span
           >
-          <span class="home-7__h2-line home-7__h2-line--3">and noteworthy</span>
+          <span class="home-7__h2-line home-7__h2-line--3">
+            <span data-a-h> and noteworthy </span>
+          </span>
         </h2>
         <ul class="home-7__items grid">
           <li class="home-7__item">
-            <gl-picture class="home-7__img" url="/img/thumb.jpg" />
-            <div class="home-7__item-h">Lorem ipsum</div>
+            <gl-picture class="home-7__img" url="/img/7.jpg" />
+            <div data-a-d class="home-7__item-h">Crunchbase</div>
           </li>
           <li class="home-7__item">
-            <gl-picture class="home-7__img" url="/img/thumb.jpg" />
-            <div class="home-7__item-h">Lorem ipsum</div>
+            <gl-picture class="home-7__img" url="/img/8.jpg" />
+            <div data-a-d class="home-7__item-h">Upwork</div>
           </li>
           <li class="home-7__item">
-            <gl-picture class="home-7__img" url="/img/thumb.jpg" />
-            <div class="home-7__item-h">Lorem ipsum</div>
+            <gl-picture class="home-7__img" url="/img/9.jpg" />
+            <div data-a-d class="home-7__item-h">
+              American Marketing Association
+            </div>
           </li>
         </ul>
       </div>
@@ -193,19 +202,19 @@ export default {
           _id: keysGenerator(8),
           title: 'Drop the CMO',
           text: 'Chief Marketing Officers are a huge cost for small companies, even before building out a marketing department. A small in-house marketing team costs $40,000-$50,000 USD every month for salaries alone. Recruiting and software costs increase marketing department overhead costs.',
-          img: '/img/thumb.jpg',
+          img: '/img/3.jpg',
         },
         {
           _id: keysGenerator(8),
           title: 'Tech companies build tech, not marketing',
           text: 'Technology companies should focus on what they are best at, which is building technology. Many technology CEOs do not have the ability to manage marketing departments. Taking time away from product development can slow growth and harm progress.',
-          img: '/img/thumb.jpg',
+          img: '/img/4.jpg',
         },
         {
           _id: keysGenerator(8),
           title: 'Save time and increase quality',
           text: 'Recruiting, operational development, and daily management leads to huge time constraints for companies. Quality is not guaranteed with an in-house team.  Trust your marketing efforts to the professionals to ensure high levels of quality control.',
-          img: '/img/thumb.jpg',
+          img: '/img/5.jpg',
         },
       ],
       home5Items: [

@@ -1,11 +1,10 @@
 <template>
   <app-picture
     :url="url"
-    :is-webp="false"
     :img-data="{
       'data-gl': '',
       'data-gl-parallax': '1',
-      'data-src': url,
+      'data-src': finalUrl,
       'data-a-gl': '',
       'data-a-gl-progress': 0,
     }"
@@ -20,6 +19,18 @@ export default {
     url: {
       type: String,
       default: '',
+    },
+  },
+
+  computed: {
+    getWebpUrl() {
+      const reg = /\.(jpe?g|png)/gm
+      const ext = '.webp'
+
+      return this.url.replace(reg, '') + ext
+    },
+    finalUrl() {
+      return this.$store.state.app.isWebp ? this.getWebpUrl : this.url
     },
   },
 }
