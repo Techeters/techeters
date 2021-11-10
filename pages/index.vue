@@ -8,7 +8,10 @@
         <div id="gl-2" />
         <div class="container home-1__container grid">
           <div class="h1 home-1__h1 grid">
-            <span data-a-h class="home-1__h1-line home-1__h1-line--1">
+            <span
+              data-a-h="1.2, 0.08"
+              class="home-1__h1-line home-1__h1-line--1"
+            >
               We are
             </span>
             <h1 data-a-d="white" class="home-1__desc">
@@ -17,10 +20,12 @@
             <span
               class="home-1__h1-line home-1__h1-line--2 glitch"
               data-alt-text="Techeters"
-              data-a-h
+              data-a-h="1.2, 0.08"
               v-html="replaceToPixel('Techeters', 'ech')"
             ></span>
-            <span data-a-h class="home-1__h1-line home-1__h1-line--3"
+            <span
+              data-a-h="1.2, 0.08"
+              class="home-1__h1-line home-1__h1-line--3"
               >Media</span
             >
           </div>
@@ -56,13 +61,13 @@
           />
         </h2>
         <div class="home-3__text grid">
-          <p data-a-t class="home-3__p home-3__p--1">
+          <p data-a-hl class="home-3__p home-3__p--1">
             Great marketing is the utilization of creative designs with advance
             technology to distribute entertaining content to the right
             audiences. We utilize top marketing software along with data
             collection and analytics to stay ahead of the game.
           </p>
-          <p data-a-t class="home-3__p home-3__p--2">
+          <p data-a-hl class="home-3__p home-3__p--2">
             We respect creative individuals to express themselves through their
             art to encourage beautiful creatives for your brand. We also stay on
             top of new marketing technologies to help distribute, manage and
@@ -88,7 +93,7 @@
             <div class="home-4-item__content grid">
               <h3 data-a-d class="home-4-item__h">{{ item.title }}</h3>
               <div class="home-4-item__right">
-                <p data-a-t class="home-4-item__text">
+                <p data-a-hl class="home-4-item__text">
                   {{ item.text }}
                 </p>
                 <gl-picture :url="item.img" class="home-4__img" />
@@ -150,19 +155,16 @@
           </span>
         </h2>
         <ul class="home-7__items grid">
-          <li class="home-7__item">
-            <gl-picture class="home-7__img" url="/img/7.jpg" />
-            <div data-a-d class="home-7__item-h">Crunchbase</div>
-          </li>
-          <li class="home-7__item">
-            <gl-picture class="home-7__img" url="/img/8.jpg" />
-            <div data-a-d class="home-7__item-h">Upwork</div>
-          </li>
-          <li class="home-7__item">
-            <gl-picture class="home-7__img" url="/img/9.jpg" />
-            <div data-a-d class="home-7__item-h">
-              American Marketing Association
-            </div>
+          <li v-for="item in home7Items" :key="item._id" class="home-7__item">
+            <a
+              class="home-7__item-link"
+              target="_blank"
+              rel="noreferer noopener"
+              :href="item.link"
+            >
+              <gl-picture class="home-7__img" :url="item.img" />
+              <div data-a-d class="home-7__item-h">{{ item.title }}</div>
+            </a>
           </li>
         </ul>
       </div>
@@ -183,6 +185,7 @@ import { keysGenerator } from '~/scripts/utils/keysGenerator'
 import GlPicture from '~/components/GlPicture.vue'
 import { delayPromise } from '~/scripts/utils/delay'
 import { getStory } from '~/scripts/utils/getStory'
+
 export default {
   components: {
     BorderSection,
@@ -232,6 +235,26 @@ export default {
           _id: keysGenerator(8),
           title: 'Marketing Strategy',
           text: 'No one goes blindly into business ventures without a good plan.  Taking time to build out strong value propositions, distribution channels, content strategies and deep market research allows for strong marketing efforts. Gaining an edge on competition while finding gaps in the market takes business to the next level.',
+        },
+      ],
+      home7Items: [
+        {
+          _id: keysGenerator(8),
+          title: 'Crunchbase',
+          img: '/img/7.jpg',
+          link: '#',
+        },
+        {
+          _id: keysGenerator(8),
+          title: 'Upwork',
+          img: '/img/8.jpg',
+          link: '#',
+        },
+        {
+          _id: keysGenerator(8),
+          title: 'American Marketing Association',
+          img: '/img/9.jpg',
+          link: '#',
         },
       ],
     }

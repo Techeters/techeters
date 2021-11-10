@@ -216,6 +216,9 @@ main {
 .home-3__p--1 {
   @include col-s(4);
   @include col-end(7);
+  @include media('>#{$br1}') {
+    width: vw(562);
+  }
   @include media('<=#{$br1}') {
     @include col-s(2);
     @include col-end(6);
@@ -224,6 +227,10 @@ main {
 .home-3__p--2 {
   @include col-s(9);
   @include col-end(12);
+  @include media('>#{$br1}') {
+    width: vw(562);
+  }
+
   @include media('<=#{$br1}') {
     @include col-s(7);
     @include col-end(11);

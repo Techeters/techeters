@@ -42,9 +42,11 @@ export class TextAnimate {
     const $toAnimate = this.prepare($el, by)
 
     $el.style.opacity = 1
+    const duration = $el.dataset.aH?.split(',')[0] || 1
+    const stagger = $el.dataset.aH?.split(',')[1] || 0.08
 
     if (by === 'chars') {
-      this.byChars($toAnimate)
+      this.byChars($toAnimate, duration, stagger)
     }
 
     if (by === 'lines') {
@@ -52,31 +54,25 @@ export class TextAnimate {
     }
   }
 
-  static byChars($el) {
+  static byChars($el, duration, stagger) {
     gsap.to($el, {
-      duration: 1.2,
+      duration,
       opacity: 1,
       ease: 'power2.out',
       scaleX: 1,
       filter: 'blur(0px)',
-      stagger: 0.12,
+      stagger,
       overwrite: true,
     })
   }
 
   static byLines($el) {
     gsap.to($el, {
-      duration: 2.5,
-      opacity: 1,
-      ease: 'power2.out',
-      stagger: 0.2,
-    })
-
-    gsap.to($el, {
-      duration: 2,
+      duration: 1.4,
       ease: 'expo.out',
       y: 0,
-      stagger: 0.2,
+      stagger: 0.1,
+      delay: 0.2,
     })
   }
 }
