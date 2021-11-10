@@ -5,6 +5,7 @@
         <p class="simple-section__text big-text">
           <span
             ref="textA"
+            data-a-d
             class="big-text__inner simple-section__text-inner"
             >{{ text }}</span
           >
@@ -31,9 +32,8 @@ export default {
   },
 
   async mounted() {
-    const { DecodeAnimation } = await import('~/scripts/DecodeAnimations')
-
-    new DecodeAnimation(this.$refs.textA)
+    // const { DecodeAnimation } = await import('~/scripts/DecodeAnimations')
+    // new DecodeAnimation(this.$refs.textA)
   },
 }
 </script>

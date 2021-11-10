@@ -11,7 +11,7 @@ export class DecodeAnimation {
   }
 
   init() {
-    this.$el.addEventListener('click', this.animate)
+    this.words = this.prepare()
   }
 
   prepare() {
@@ -42,10 +42,11 @@ export class DecodeAnimation {
   }
 
   animate() {
-    const words = this.prepare()
     const stagger = 0.03
 
-    words.forEach((word, idx) => {
+    this.$el.style.opacity = 1
+
+    this.words.forEach((word, idx) => {
       const revealer = word.querySelector('.word-revealer')
       const text = word.querySelector('.word-text')
 

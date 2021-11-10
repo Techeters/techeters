@@ -121,7 +121,7 @@ body {
 }
 
 [data-a-t] {
-  transform: translateX(60px);
+  transform: translateY(60px);
   opacity: 0;
   will-change: transform, opacity;
 }
@@ -129,6 +129,17 @@ body {
 [data-a-o] {
   opacity: 0;
   will-change: opacity;
+}
+
+[data-a-d] {
+  opacity: 0;
+  will-change: opacity;
+}
+
+[data-a-l] {
+  transform: scaleX(0);
+  transform-origin: left;
+  will-change: transform;
 }
 
 .bg-gradient {

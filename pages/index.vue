@@ -8,10 +8,10 @@
         <div id="gl-2" />
         <div class="container home-1__container grid">
           <div class="h1 home-1__h1 grid">
-            <span data-a-h class="home-1__h1-line home-1__h1-line--1"
-              >We are</span
-            >
-            <h1 data-a-hl class="home-1__desc">
+            <span data-a-h class="home-1__h1-line home-1__h1-line--1">
+              We are
+            </span>
+            <h1 data-a-d class="home-1__desc">
               Where technology and design come together
             </h1>
             <span
@@ -30,7 +30,7 @@
         </div>
       </border-section>
     </div>
-    <section class="section home-2">
+    <section data-in-view class="section home-2">
       <simple-section
         text="Techeters is a marketing and creative agency that offers technology
             clients marketing solutions by combining creative approaches with
@@ -40,24 +40,29 @@
         img="/img/thumb.jpg"
       />
     </section>
-    <section class="section home-3">
+    <section data-in-view class="section home-3">
       <div class="container home-3__container">
         <h2 class="h2 home-3__h grid">
-          <span class="home-3__h-line home-3__h-line--1">We combine</span>
-          <span class="home-3__h-line home-3__h-line--2">design</span>
+          <span data-a-h class="home-3__h-line home-3__h-line--1">
+            We combine
+          </span>
+          <span class="home-3__h-line home-3__h-line--2">
+            <span data-a-h>design</span>
+          </span>
           <span
+            data-a-h
             class="home-3__h-line home-3__h-line--3"
             v-html="replaceToPixel('and technology', 'and')"
-          ></span>
+          />
         </h2>
         <div class="home-3__text grid">
-          <p class="home-3__p home-3__p--1">
+          <p data-a-o class="home-3__p home-3__p--1">
             Great marketing is the utilization of creative designs with advance
             technology to distribute entertaining content to the right
             audiences. We utilize top marketing software along with data
             collection and analytics to stay ahead of the game.
           </p>
-          <p class="home-3__p home-3__p--2">
+          <p data-a-o class="home-3__p home-3__p--2">
             We respect creative individuals to express themselves through their
             art to encourage beautiful creatives for your brand. We also stay on
             top of new marketing technologies to help distribute, manage and
@@ -75,14 +80,15 @@
           <li
             v-for="(item, idx) in home4Items"
             :key="item._id"
+            data-in-view
             class="home-4__item home-4-item"
           >
-            <div class="home-4-item__idx">0{{ idx + 1 }}</div>
-            <div class="line home-4-item__line"></div>
+            <div data-a-d class="home-4-item__idx">0{{ idx + 1 }}</div>
+            <div data-a-l class="line home-4-item__line"></div>
             <div class="home-4-item__content grid">
-              <h3 class="home-4-item__h">{{ item.title }}</h3>
+              <h3 data-a-hl class="home-4-item__h">{{ item.title }}</h3>
               <div class="home-4-item__right">
-                <p class="home-4-item__text">
+                <p data-a-t class="home-4-item__text">
                   {{ item.text }}
                 </p>
                 <gl-picture :url="item.img" class="home-4__img" />
@@ -116,7 +122,7 @@
         </ul>
       </div>
     </border-section>
-    <section class="section home-6">
+    <section class="section home-6" data-in-view>
       <app-ticker
         class="home-6__ticker"
         text="Marketing is a combination of art and technology"
@@ -267,6 +273,12 @@ export default {
     window.scetch2?.figures[0]?.changeIntensity()
 
     animations(document.querySelector('.hero-wrapper'))
+
+    const { default: ScrollAnimations } = await import(
+      '~/scripts/scroll/ScrollAnimations'
+    )
+
+    new ScrollAnimations()
 
     // const { Gradient } = await import('~/scripts/BgGradient')
 

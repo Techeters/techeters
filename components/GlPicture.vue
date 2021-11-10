@@ -6,6 +6,8 @@
       'data-gl': '',
       'data-gl-parallax': '1',
       'data-src': url,
+      'data-a-gl': '',
+      'data-a-gl-progress': 0,
     }"
   />
 </template>

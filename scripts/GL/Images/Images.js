@@ -78,6 +78,10 @@ export default class Images extends Figure {
     return window.ss?.state?.scrolling ?? false
   }
 
+  get visibility() {
+    return +this.$el.dataset.aGlProgress ?? 1
+  }
+
   onMouseEnter() {
     gsap.to(this.material.uniforms.uHover, {
       duration: 1,
@@ -114,6 +118,7 @@ export default class Images extends Figure {
       let strength = this.velocity / 250
       strength = lerp(this.material.uniforms.uStrength.value, strength, 0.08)
       this.material.uniforms.uStrength.value = strength
+      this.material.uniforms.uVisible.value = this.visibility
     }
   }
 

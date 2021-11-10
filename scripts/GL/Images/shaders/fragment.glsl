@@ -33,8 +33,10 @@ void main() {
    vec2 newUv = uv;
    float angle = 1.55;
 
-   newUv += (sin(newUv.y * 10. + (uTime / 5.)) / 500.) * (uStrength * 2.);
-   newUv += (sin(newUv.x * 10. + (uTime / 15.)) / 500.) * (uStrength * 2.);
+   float displace = uStrength * 2. + ((1. - uVisible) * 20.);
+
+   newUv += (sin(newUv.y * 10. + (uTime / 5.)) / 500.) * displace;
+   newUv += (sin(newUv.x * 10. + (uTime / 15.)) / 500.) * displace;
 
    vec2 p = (newUv - vec2(0.5, 0.5)) * (defaultScale - uScale) + vec2(0.5, 0.5);
    vec2 offset = uStrength / 50.0 * vec2(cos(angle), sin(angle));
