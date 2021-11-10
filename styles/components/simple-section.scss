@@ -5,10 +5,6 @@
   @include row-end(2);
   max-width: vw(1073);
   height: fit-content;
-  @include media('>#{$br1}') {
-    position: sticky;
-    top: 40px;
-  }
   @include media('<=#{$br1}') {
     @include col-s(1);
     @include col-end(6);

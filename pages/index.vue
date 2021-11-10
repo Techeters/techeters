@@ -93,7 +93,7 @@
       </div>
     </section>
     <border-section class="home-5">
-      <div class="bg-gradient home-5__img" />
+      <div id="gradient" class="bg-gradient home-5__img" />
       <div class="container home-5__container">
         <div class="home-5__h-wrapper grid">
           <h2
@@ -167,6 +167,7 @@ import replaceToPixel from '~/mixins/replaceToPixel.vue'
 import { keysGenerator } from '~/scripts/utils/keysGenerator'
 import GlPicture from '~/components/GlPicture.vue'
 import { delayPromise } from '~/scripts/utils/delay'
+import { getStory } from '~/scripts/utils/getStory'
 export default {
   components: {
     BorderSection,
@@ -176,6 +177,9 @@ export default {
     GlPicture,
   },
   mixins: [replaceToPixel],
+  asyncData(context) {
+    return getStory(context, '/')
+  },
   data() {
     return {
       home4Items: [
@@ -263,6 +267,10 @@ export default {
     window.scetch2?.figures[0]?.changeIntensity()
 
     animations(document.querySelector('.hero-wrapper'))
+
+    // const { Gradient } = await import('~/scripts/BgGradient')
+
+    // new Gradient()
   },
 }
 </script>
