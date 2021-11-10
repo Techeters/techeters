@@ -55,6 +55,7 @@ export class TextAnimate {
   }
 
   static byChars($el, duration, stagger) {
+    console.log(duration, stagger)
     gsap.to($el, {
       duration,
       opacity: 1,

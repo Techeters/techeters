@@ -9,7 +9,7 @@
         <div class="container home-1__container grid">
           <div class="h1 home-1__h1 grid">
             <span
-              data-a-h="1.2, 0.08"
+              data-a-h="1.2, 0.12"
               class="home-1__h1-line home-1__h1-line--1"
             >
               We are
@@ -20,11 +20,11 @@
             <span
               class="home-1__h1-line home-1__h1-line--2 glitch"
               data-alt-text="Techeters"
-              data-a-h="1.2, 0.08"
+              data-a-h="1.2, 0.12"
               v-html="replaceToPixel('Techeters', 'ech')"
             ></span>
             <span
-              data-a-h="1.2, 0.08"
+              data-a-h="1.2, 0.12"
               class="home-1__h1-line home-1__h1-line--3"
               >Media</span
             >
@@ -163,7 +163,9 @@
               :href="item.link"
             >
               <gl-picture class="home-7__img" :url="item.img" />
-              <div data-a-d class="home-7__item-h">{{ item.title }}</div>
+              <div data-a-o class="home-7__item-h">
+                <span>{{ item.title }}</span>
+              </div>
             </a>
           </li>
         </ul>

@@ -499,3 +499,30 @@ main {
     font-size: size(24, 20);
   }
 }
+
+.home-7__item-link {
+  display: block;
+  .home-7__item-h {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: fit-content;
+    ::after {
+      display: block;
+      content: '';
+      height: 2px;
+      opacity: 0;
+      width: 100%;
+      background-color: var(--black);
+    }
+  }
+  &:hover {
+    span {
+      animation: glitchText 0.4s linear;
+    }
+    ::after {
+      opacity: 1;
+      animation: glitchLine 0.4s steps(2, start) forwards;
+    }
+  }
+}
