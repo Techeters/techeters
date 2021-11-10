@@ -33,15 +33,17 @@ void main() {
    vec2 newUv = uv;
    float angle = 1.55;
 
-   float displace = uStrength * 2. + ((1. - uVisible) * 20.);
+   float roundblend = sin(PI*uHover);
+   float displace = uStrength * 2. + ((1. - uVisible) * 20.) + roundblend * 20.;
 
    newUv += (sin(newUv.y * 10. + (uTime / 5.)) / 500.) * displace;
    newUv += (sin(newUv.x * 10. + (uTime / 15.)) / 500.) * displace;
 
    vec2 p = (newUv - vec2(0.5, 0.5)) * (defaultScale - uScale) + vec2(0.5, 0.5);
-   vec2 offset = uStrength / 50.0 * vec2(cos(angle), sin(angle));
+   vec2 offset = uStrength / 50.0 * vec2(cos(angle), sin(angle)) + roundblend * 0.05;
 
-   float t = uStrength + ((1. - uVisible) * 10.);
+
+   float t = uStrength + ((1. - uVisible) * 10.) + roundblend;
    float _Speed = 3.0;
 
    float res = t * _Speed * 3.0 + 0.01;

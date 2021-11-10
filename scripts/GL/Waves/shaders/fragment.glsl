@@ -29,7 +29,7 @@ void main() {
   float time = slowTime * speed;
 
   vec2 fUv = uv * cloudscale * 0.2 * 0.5 + mouse;
-  float intensity = uIntensity / 2. + mouse.x + mouse.y;
+  float intensity = uIntensity / 2.;
   float q = fbm(fUv, intensity, m);
 
 
