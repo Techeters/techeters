@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main v-editable="story.content">
     <div id="gl-3"></div>
     <div class="noisy"></div>
     <div class="hero-wrapper">
@@ -14,7 +14,7 @@
             >
               We are
             </span>
-            <h1 data-a-d="white" class="home-1__desc">
+            <h1 data-a-hl="white" class="home-1__desc">
               Where technology and design come together
             </h1>
             <span
@@ -36,14 +36,7 @@
       </border-section>
     </div>
     <section data-in-view class="section home-2">
-      <simple-section
-        text="Techeters is a marketing and creative agency that offers technology
-            clients marketing solutions by combining creative approaches with
-            analytic and technical execution. We partner with innovative
-            technology companies that provide high level value to society and
-            make the world a better place."
-        img="/img/1.jpg"
-      />
+      <simple-section :text="secondScreenText" img="/img/1.jpg" />
     </section>
     <section data-in-view class="section home-3">
       <div class="container home-3__container">
@@ -62,16 +55,10 @@
         </h2>
         <div class="home-3__text grid">
           <p data-a-hl class="home-3__p home-3__p--1">
-            Great marketing is the utilization of creative designs with advance
-            technology to distribute entertaining content to the right
-            audiences. We utilize top marketing software along with data
-            collection and analytics to stay ahead of the game.
+            {{ thirdScreenText1 }}
           </p>
           <p data-a-hl class="home-3__p home-3__p--2">
-            We respect creative individuals to express themselves through their
-            art to encourage beautiful creatives for your brand. We also stay on
-            top of new marketing technologies to help distribute, manage and
-            analyze campaigns to make smarter decisions.
+            {{ thirdScreenText2 }}
           </p>
         </div>
         <div class="home-3__img-wrapper grid">
@@ -84,7 +71,7 @@
         <ul class="home-4__items">
           <li
             v-for="(item, idx) in home4Items"
-            :key="item._id"
+            :key="item._uid"
             data-in-view
             class="home-4__item home-4-item"
           >
@@ -114,8 +101,8 @@
         </div>
         <ul class="home-5__items">
           <li
-            v-for="item in home5Items"
-            :key="item._id"
+            v-for="item in services"
+            :key="item._uid"
             class="home-5__item home-5-item"
           >
             <div class="line line--white home-5-item__line"></div>
@@ -132,11 +119,11 @@
     <section class="section home-6" data-in-view>
       <app-ticker
         class="home-6__ticker"
-        text="Marketing is a combination of art and technology"
+        :text="sixthScreen.title"
         divider="&nbsp;&nbsp;•&nbsp;&nbsp;"
       />
       <simple-section
-        text="We handle clients with ease and allow clients to focus on their own operations without having to manage us."
+        :text="sixthScreen.text"
         class="home-6__content"
         img="/img/6.jpg"
       />
@@ -151,11 +138,15 @@
             >known</span
           >
           <span class="home-7__h2-line home-7__h2-line--3">
-            <span data-a-h> and noteworthy </span>
+            <span data-a-h>and noteworthy</span>
           </span>
         </h2>
         <ul class="home-7__items grid">
-          <li v-for="item in home7Items" :key="item._id" class="home-7__item">
+          <li
+            v-for="item in publications"
+            :key="item._uid"
+            class="home-7__item"
+          >
             <a
               class="home-7__item-link"
               target="_blank"
@@ -183,10 +174,10 @@ import AppTicker from '~/components/AppTicker.vue'
 import BorderSection from '~/components/BorderSection.vue'
 import SimpleSection from '~/components/SimpleSection.vue'
 import replaceToPixel from '~/mixins/replaceToPixel.vue'
-import { keysGenerator } from '~/scripts/utils/keysGenerator'
 import GlPicture from '~/components/GlPicture.vue'
 import { delayPromise } from '~/scripts/utils/delay'
-import { getStory } from '~/scripts/utils/getStory'
+import homeStory from '~/mixins/stories/home.vue'
+import storyBridge from '~/mixins/storyBridge.vue'
 
 export default {
   components: {
@@ -196,71 +187,7 @@ export default {
     AppFooter,
     GlPicture,
   },
-  mixins: [replaceToPixel],
-  asyncData(context) {
-    return getStory(context, '/')
-  },
-  data() {
-    return {
-      home4Items: [
-        {
-          _id: keysGenerator(8),
-          title: 'Drop the CMO',
-          text: 'Chief Marketing Officers are a huge cost for small companies, even before building out a marketing department. A small in-house marketing team costs $40,000-$50,000 USD every month for salaries alone. Recruiting and software costs increase marketing department overhead costs.',
-          img: '/img/3.jpg',
-        },
-        {
-          _id: keysGenerator(8),
-          title: 'Tech companies build tech, not marketing',
-          text: 'Technology companies should focus on what they are best at, which is building technology. Many technology CEOs do not have the ability to manage marketing departments. Taking time away from product development can slow growth and harm progress.',
-          img: '/img/4.jpg',
-        },
-        {
-          _id: keysGenerator(8),
-          title: 'Save time and increase quality',
-          text: 'Recruiting, operational development, and daily management leads to huge time constraints for companies. Quality is not guaranteed with an in-house team.  Trust your marketing efforts to the professionals to ensure high levels of quality control.',
-          img: '/img/5.jpg',
-        },
-      ],
-      home5Items: [
-        {
-          _id: keysGenerator(8),
-          title: 'Branding',
-          text: 'It takes just 3 seconds for your first impression to be made. Making yourself look good is not vanity. Many opportunities are lost based on poor branding standards. We ensure that you not only look good, but do so consistently across all channels.',
-        },
-        {
-          _id: keysGenerator(8),
-          title: 'Full Marketing Services',
-          text: 'There are no half measures when it comes to marketing.  All things are connected in an online marketing effort. Picking and choosing services leads to failure. We ensure that all efforts flow together for the highest levels of efficiency and results.',
-        },
-        {
-          _id: keysGenerator(8),
-          title: 'Marketing Strategy',
-          text: 'No one goes blindly into business ventures without a good plan.  Taking time to build out strong value propositions, distribution channels, content strategies and deep market research allows for strong marketing efforts. Gaining an edge on competition while finding gaps in the market takes business to the next level.',
-        },
-      ],
-      home7Items: [
-        {
-          _id: keysGenerator(8),
-          title: 'Crunchbase',
-          img: '/img/7.jpg',
-          link: '#',
-        },
-        {
-          _id: keysGenerator(8),
-          title: 'Upwork',
-          img: '/img/8.jpg',
-          link: '#',
-        },
-        {
-          _id: keysGenerator(8),
-          title: 'American Marketing Association',
-          img: '/img/9.jpg',
-          link: '#',
-        },
-      ],
-    }
-  },
+  mixins: [replaceToPixel, homeStory, storyBridge],
 
   async mounted() {
     const { initImages } = await import('~/scripts/GL/Images/init')

@@ -2,6 +2,8 @@
   <component
     :is="tag"
     :href="tag === 'a' && to"
+    :rel="tag === 'a' && 'noreferer noopener'"
+    :target="tag === 'a' && '_blank'"
     :to="tag === 'nuxt-link' && to"
     class="e-link"
   >

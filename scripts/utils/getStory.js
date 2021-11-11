@@ -1,5 +1,5 @@
-export const getStory = (context, url) => {
-  return context.app.$storyapi
+export const getStory = async (app, url) => {
+  return await app.$storyapi
     .get(`cdn/stories${url}`, {
       version: 'draft',
     })
