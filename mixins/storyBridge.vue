@@ -7,18 +7,20 @@ export default {
         const storyblokInstance = new StoryblokBridge()
 
         storyblokInstance.on(['input', 'published', 'change'], event => {
+          console.log(event, this.story.content)
           if (event.action === 'input') {
             if (event.story.id === this.story.id) {
-              this.story.content = event.story.content
+              console.log('updating')
+              this.story = event.story
+              this.$forceUpdate()
+              this.$nextTick(() => {
+                this.story = event.story
+                this.$forceUpdate()
+                window.location.reload(true)
+              })
             }
           } else {
             window.location.reload(true)
-            setTimeout(() => {
-              console.log(event.story.id, this.story.id)
-              if (event.story.id === this.story.id) {
-                this.story.content = event.story.content
-              }
-            }, 0)
           }
         })
       },
