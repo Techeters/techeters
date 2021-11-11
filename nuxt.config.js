@@ -39,7 +39,7 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/pwa
-    // '@nuxtjs/pwa',
+    '@nuxtjs/pwa',
     [
       'storyblok-nuxt',
       {
@@ -51,15 +51,15 @@ export default {
   ],
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
-  // pwa: {
-  //   manifest: {
-  //     lang: 'en',
-  //     theme_color: '#FDFAF3',
-  //   },
-  //   icon: {
-  //     fileName: 'icon.png',
-  //   },
-  // },
+  pwa: {
+    manifest: {
+      lang: 'en',
+      theme_color: '#FDFAF3',
+    },
+    icon: {
+      fileName: 'icon.png',
+    },
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
