@@ -1,8 +1,8 @@
 import { fi } from './gulp-src/fonts-include.js'
 
-require('dotenv').config({
-  path: `.env.${process.env.NODE_ENV}`,
-})
+// require('dotenv').config({
+//   path: `.env.${process.env.NODE_ENV}`,
+// })
 
 export default {
   mode: 'universal',
@@ -47,11 +47,11 @@ export default {
     [
       'storyblok-nuxt',
       {
-        accessToken: process.env.STORYBLOK_KEY,
+        accessToken: 'VPQSPPaJyyiVhTs9TtXsagtt',
         cacheProvider: 'memory',
       },
     ],
-    ['@nuxtjs/dotenv', { filename: `.env.${process.env.NODE_ENV}` }],
+    // ['@nuxtjs/dotenv', { filename: `.env.${process.env.NODE_ENV}` }],
   ],
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
