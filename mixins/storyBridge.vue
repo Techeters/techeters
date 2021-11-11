@@ -14,6 +14,7 @@ export default {
           } else {
             window.location.reload(true)
             setTimeout(() => {
+              console.log(event.story.id, this.story.id)
               if (event.story.id === this.story.id) {
                 this.story.content = event.story.content
               }
