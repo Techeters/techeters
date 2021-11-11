@@ -5,14 +5,10 @@ import { fi } from './gulp-src/fonts-include.js'
 // })
 
 export default {
-  mode: 'universal',
-  // Target: https://go.nuxtjs.dev/config-target
-  target: 'server',
-
-  server: {
-    port: '3000',
-    host: '0.0.0.0',
-  },
+  // server: {
+  //   port: '3000',
+  //   host: '0.0.0.0',
+  // },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -43,7 +39,7 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/pwa
-    '@nuxtjs/pwa',
+    // '@nuxtjs/pwa',
     [
       'storyblok-nuxt',
       {
@@ -55,15 +51,15 @@ export default {
   ],
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
-  pwa: {
-    manifest: {
-      lang: 'en',
-      theme_color: '#FDFAF3',
-    },
-    icon: {
-      fileName: 'icon.png',
-    },
-  },
+  // pwa: {
+  //   manifest: {
+  //     lang: 'en',
+  //     theme_color: '#FDFAF3',
+  //   },
+  //   icon: {
+  //     fileName: 'icon.png',
+  //   },
+  // },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
