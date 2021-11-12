@@ -26,6 +26,7 @@
     "prefer-const": "warn",
     "vue/script-setup-uses-vars": "off",
     "import/no-named-as-default": "off",
+    "require-await": "warn",
     "prettier/prettier": [
       "off",
       {

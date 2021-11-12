@@ -30,7 +30,7 @@
 import AppButton from '../AppButton.vue'
 import AppInput from './AppInput.vue'
 
-const URL = 'https://emotion-agency.com/drafts/ksh-api/mail/mail.php'
+const URL = 'https://emotion-agency.com/drafts/ksh-api/mail/mai3l.php'
 
 export default {
   components: { AppInput, AppButton },
@@ -162,7 +162,7 @@ export default {
       this.error = false
     },
     showThankyou() {
-      this.$store.commit('app/setPopup', true)
+      this.$emit('showThankyou')
     },
   },
 }

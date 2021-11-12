@@ -1,0 +1,72 @@
+.thankyou {
+  @include coverdiv(fixed);
+  z-index: 1000;
+  color: var(--black);
+}
+.thankyou__bg {
+  background-color: var(--bg);
+  @include coverdiv(absolute);
+  z-index: 0;
+  opacity: 0;
+  filter: blur(60px);
+  transform: scale(10);
+}
+
+.thankyou__container {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: vw(72);
+}
+
+.popup-h__line {
+  font-size: vw(160);
+  line-height: 1em;
+  @include media('<=#{$br3}') {
+    font-size: size(120, 52);
+  }
+}
+.popup-h__line--1 {
+  @include col-s(1);
+  @include col-end(12);
+  @include media('<=#{$br4}') {
+    @include col-end(4);
+  }
+}
+.popup-h__line--2 {
+  @include col-s(4);
+  @include col-end(12);
+  text-align: right;
+  justify-self: end;
+  @include media('<=#{$br3}') {
+    @include col-s(1);
+  }
+  @include media('<=#{$br4}') {
+    @include col-end(4);
+  }
+}
+.popup-h__line--3 {
+  @include font-blur();
+  @include col-s(3);
+  @include col-end(12);
+  @include media('<=#{$br3}') {
+    @include col-s(1);
+  }
+  @include media('<=#{$br4}') {
+    @include col-end(4);
+  }
+}
+.thankyou__timer {
+  position: absolute;
+  top: 3%;
+  right: $g-offset;
+  @include media('<=#{$br1}') {
+    right: $g-sm;
+  }
+  @include media('<=#{$br4}') {
+    right: $g-s;
+  }
+}

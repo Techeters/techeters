@@ -233,7 +233,7 @@ export default {
     await delayPromise(500)
     window.scetch2?.figures[0]?.changeIntensity()
 
-    animations(document.querySelector('.hero-wrapper'))
+    animations(document.querySelector('.hero-wrapper')).in()
 
     const { default: ScrollAnimations } = await import(
       '~/scripts/scroll/ScrollAnimations'

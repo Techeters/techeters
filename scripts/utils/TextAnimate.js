@@ -7,7 +7,9 @@ export class TextAnimate {
   static prepare($el, by = 'chars') {
     let $toAnimate
     if ($el.classList.contains('splitted')) {
-      return
+      $toAnimate = [...$el.querySelectorAll('.char')]
+      $toAnimate = shuffle($toAnimate)
+      return $toAnimate
     }
 
     if (by === 'chars') {
@@ -54,6 +56,21 @@ export class TextAnimate {
     }
   }
 
+  static out($el, by = 'chars') {
+    const $toAnimate = this.prepare($el, by)
+
+    const duration = $el.dataset.aH?.split(',')[0] || 0.8
+    const stagger = $el.dataset.aH?.split(',')[1] || 0.06
+
+    if (by === 'chars') {
+      this.byCharsOut($toAnimate, duration, stagger)
+    }
+
+    if (by === 'lines') {
+      this.byLinesOut($toAnimate)
+    }
+  }
+
   static byChars($el, duration, stagger) {
     gsap.to($el, {
       duration,
@@ -66,11 +83,33 @@ export class TextAnimate {
     })
   }
 
+  static byCharsOut($el, duration, stagger) {
+    gsap.to($el, {
+      duration,
+      opacity: 0,
+      ease: 'power2.out',
+      scaleX: 2,
+      filter: 'blur(40px)',
+      stagger,
+      overwrite: true,
+    })
+  }
+
   static byLines($el) {
     gsap.to($el, {
       duration: 1.4,
       ease: 'expo.out',
       y: 0,
+      stagger: 0.1,
+      delay: 0.2,
+    })
+  }
+
+  static byLinesOut($el) {
+    gsap.to($el, {
+      duration: 1.4,
+      ease: 'expo.out',
+      y: '100%',
       stagger: 0.1,
       delay: 0.2,
     })

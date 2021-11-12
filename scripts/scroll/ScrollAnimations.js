@@ -14,7 +14,7 @@ class ScrollAnimations extends ScrollInView {
   }
 
   sectionAnimation(elem) {
-    animations(elem)
+    animations(elem).in()
   }
 
   destroy() {
