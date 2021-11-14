@@ -4,7 +4,7 @@
     <div class="noisy"></div>
     <div class="hero-wrapper">
       <div class="home-1__img" />
-      <border-section class="section section--nm hero home-1">
+      <border-section class="section section--nm hero home-1 autoheight">
         <div id="gl-2" />
         <div class="container home-1__container grid">
           <div class="h1 home-1__h1 grid">
@@ -90,32 +90,34 @@
         </ul>
       </div>
     </section>
-    <border-section class="home-5">
-      <div id="gradient" class="bg-gradient home-5__img" />
-      <div class="container home-5__container">
-        <div class="home-5__h-wrapper grid">
-          <h2
-            class="h2 home-5__h"
-            v-html="replaceToPixel('Services', 'e')"
-          ></h2>
+    <app-sticky>
+      <border-section class="home-5" data-section-scale>
+        <div class="bg-gradient home-5__img" />
+        <div class="container home-5__container" data-section-sticky-scroller>
+          <div class="home-5__h-wrapper grid">
+            <h2
+              class="h2 home-5__h"
+              v-html="replaceToPixel('Services', 'e')"
+            ></h2>
+          </div>
+          <ul class="home-5__items">
+            <li
+              v-for="item in services"
+              :key="item._uid"
+              class="home-5__item home-5-item"
+            >
+              <div class="line line--white home-5-item__line"></div>
+              <div class="home-5-item__content grid">
+                <h3 class="h3 home-5-item__h">
+                  {{ item.title }}
+                </h3>
+                <p class="home-5-item__text">{{ item.text }}</p>
+              </div>
+            </li>
+          </ul>
         </div>
-        <ul class="home-5__items">
-          <li
-            v-for="item in services"
-            :key="item._uid"
-            class="home-5__item home-5-item"
-          >
-            <div class="line line--white home-5-item__line"></div>
-            <div class="home-5-item__content grid">
-              <h3 class="h3 home-5-item__h">
-                {{ item.title }}
-              </h3>
-              <p class="home-5-item__text">{{ item.text }}</p>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </border-section>
+      </border-section>
+    </app-sticky>
     <section class="section home-6" data-in-view>
       <app-ticker
         class="home-6__ticker"
@@ -171,6 +173,7 @@ import emitter from 'tiny-emitter/instance'
 
 import AppFooter from '~/components/AppFooter.vue'
 import AppTicker from '~/components/AppTicker.vue'
+import AppSticky from '~/components/AppSticky.vue'
 import BorderSection from '~/components/BorderSection.vue'
 import SimpleSection from '~/components/SimpleSection.vue'
 import replaceToPixel from '~/mixins/replaceToPixel.vue'
@@ -186,6 +189,7 @@ export default {
     SimpleSection,
     AppFooter,
     GlPicture,
+    AppSticky,
   },
   mixins: [replaceToPixel, homeStory, storyBridge],
 
@@ -241,9 +245,9 @@ export default {
 
     new ScrollAnimations()
 
-    // const { Gradient } = await import('~/scripts/BgGradient')
+    const { SectionScale } = await import('~/scripts/SectionScale')
 
-    // new Gradient()
+    new SectionScale(document.querySelectorAll('[data-section-scale]'))
   },
 }
 </script>

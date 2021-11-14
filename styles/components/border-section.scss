@@ -7,15 +7,23 @@
     --margin: 0.42vw;
   }
   @include media('<=#{$br1}') {
-    --margin: 18px;
+    --margin: 10px;
   }
   @include media('<=#{$br3}') {
     --margin: 0px;
   }
+  &.autoheight {
+    .border-section__wrapper {
+      height: 100%;
+    }
+    .container {
+      height: 100%;
+    }
+  }
 }
 
 .border-section__wrapper {
-  height: 100%;
+  height: calc(var(--vh) - var(--margin) * 2);
   position: relative;
   border-radius: var(--border-r);
   overflow: hidden;
@@ -34,5 +42,8 @@
       padding-left: calc(2.91667vw - var(--margin));
       padding-right: calc(2.91667vw - var(--margin));
     }
+  }
+  .container {
+    height: fit-content;
   }
 }

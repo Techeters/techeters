@@ -160,6 +160,23 @@ body {
   will-change: transform;
 }
 
+[data-section-scale] {
+  @include media('>#{$br1}') {
+    transform: scale(0.88);
+    will-change: transform;
+  }
+}
+
+[data-section-sticky] {
+  position: sticky;
+  top: 0;
+}
+
+.sticky-wrapper {
+  position: relative;
+  height: 120vh;
+}
+
 .bg-gradient {
   &::after {
     content: '';
