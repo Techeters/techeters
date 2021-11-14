@@ -20,6 +20,20 @@ export default {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
+      {
+        name: 'twitter:image',
+        content: '/twitter.png',
+      },
+      {
+        property: 'og:image',
+        content: '/twitter.png',
+      },
+      {
+        hid: 'og:site_name',
+        property: 'og:site_name',
+        content: 'Techeters Media',
+      },
+      { hid: 'theme-color', name: 'theme-color', content: '#003141' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }, ...fi],
   },

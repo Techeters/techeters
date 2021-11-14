@@ -193,6 +193,39 @@ export default {
   },
   mixins: [replaceToPixel, homeStory, storyBridge],
 
+  head() {
+    const { title, description } = this.story.content.meta[0]
+    return {
+      title,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: description,
+        },
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          content: title,
+        },
+        {
+          hid: 'og:description',
+          name: 'og:title',
+          content: description,
+        },
+        { name: 'twitter:card', content: 'summary_large_image' },
+        {
+          name: 'twitter:title',
+          content: title,
+        },
+        {
+          name: 'twitter:description',
+          content: description,
+        },
+      ],
+    }
+  },
+
   async mounted() {
     const { initImages } = await import('~/scripts/GL/Images/init')
     if (window.scetch) {
