@@ -3,6 +3,7 @@ export const state = () => ({
   loaded: false,
   isWebp: false,
   isPopupOpen: false,
+  isShowThankyou: false,
 })
 
 export const mutations = {
@@ -17,5 +18,8 @@ export const mutations = {
   },
   setPopup(state, value) {
     state.isPopupOpen = value
+  },
+  setThankyou(state, value) {
+    state.isShowThankyou = value
   },
 }

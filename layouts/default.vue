@@ -4,6 +4,8 @@
     <div id="scroll-container">
       <Nuxt />
       <div id="gl"></div>
+      <form-thankyou />
+      <form-popup />
     </div>
   </div>
 </template>
@@ -12,8 +14,10 @@
 import emitter from 'tiny-emitter/instance'
 
 import AppGrid from '~/components/AppGrid.vue'
+import FormThankyou from '~/components/AppForm/FormThankyou.vue'
+import FormPopup from '~/components/AppForm/FormPopup.vue'
 export default {
-  components: { AppGrid },
+  components: { AppGrid, FormThankyou, FormPopup },
 
   async mounted() {
     const { default: supportsWebP } = await import('supports-webp')

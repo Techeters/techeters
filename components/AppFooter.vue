@@ -47,11 +47,17 @@
             </div>
             <div class="footer__form footer-form">
               <h3 class="footer__h3 footer-form__h">Get in touch</h3>
-              <app-form @showThankyou="openThankyou" />
+              <app-form />
             </div>
           </div>
           <div class="footer__bottom grid">
-            <app-link to="#" class="footer__made-by">made by emotion</app-link>
+            <app-link
+              to="https://emotion-agency.com/en/"
+              tag="a"
+              class="footer__made-by"
+            >
+              made by emotion
+            </app-link>
             <app-link
               :to="getField('contacts', 'privacy_policy')"
               class="footer__pp"
@@ -60,7 +66,6 @@
           </div>
         </div>
       </border-section>
-      <form-thankyou :visible="thankyou" @closeThankyou="thankyou = false" />
     </footer>
   </app-sticky>
 </template>
@@ -70,7 +75,6 @@ import AppLogo from './AppLogo.vue'
 import BorderSection from './BorderSection.vue'
 import AppForm from './AppForm/AppForm.vue'
 import AppLink from './AppLink.vue'
-import FormThankyou from './AppForm/FormThankyou.vue'
 import AppSticky from './AppSticky.vue'
 import replaceToPixel from '~/mixins/replaceToPixel.vue'
 import globalStory from '~/mixins/stories/global.vue'
@@ -81,16 +85,9 @@ export default {
     AppLogo,
     AppForm,
     AppLink,
-    FormThankyou,
     AppSticky,
   },
   mixins: [replaceToPixel, globalStory],
-
-  data() {
-    return {
-      thankyou: false,
-    }
-  },
 
   computed: {
     social() {
@@ -116,11 +113,6 @@ export default {
           to: this.getField('contacts', 'tiktok'),
         },
       ]
-    },
-  },
-  methods: {
-    openThankyou() {
-      this.thankyou = true
     },
   },
 }

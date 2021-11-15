@@ -167,6 +167,10 @@ body {
   }
 }
 
+[data-a-gl] {
+  opacity: 0;
+}
+
 [data-section-sticky] {
   position: sticky;
   top: 0;

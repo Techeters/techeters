@@ -2,39 +2,7 @@
   <main v-editable="story.content">
     <div id="gl-3"></div>
     <div class="noisy"></div>
-    <div class="hero-wrapper">
-      <div class="home-1__img" />
-      <border-section class="section section--nm hero home-1 autoheight">
-        <div id="gl-2" />
-        <div class="container home-1__container grid">
-          <div class="h1 home-1__h1 grid">
-            <span
-              data-a-h="1.2, 0.12"
-              class="home-1__h1-line home-1__h1-line--1"
-            >
-              We are
-            </span>
-            <h1 data-a-hl="white" class="home-1__desc">
-              Where technology and design come together
-            </h1>
-            <span
-              class="home-1__h1-line home-1__h1-line--2 glitch"
-              data-alt-text="Techeters"
-              data-a-h="1.2, 0.12"
-              v-html="replaceToPixel('Techeters', 'ech')"
-            ></span>
-            <span
-              data-a-h="1.2, 0.12"
-              class="home-1__h1-line home-1__h1-line--3"
-              >Media</span
-            >
-          </div>
-          <app-button data-a-o class="home-1__btn"
-            >Start your journey</app-button
-          >
-        </div>
-      </border-section>
-    </div>
+    <hero-section />
     <section data-in-view class="section home-2">
       <simple-section :text="secondScreenText" img="/img/1.jpg" />
     </section>
@@ -171,6 +139,7 @@
 <script>
 import emitter from 'tiny-emitter/instance'
 
+import HeroSection from '~/components/HeroSection.vue'
 import AppFooter from '~/components/AppFooter.vue'
 import AppTicker from '~/components/AppTicker.vue'
 import AppSticky from '~/components/AppSticky.vue'
@@ -184,6 +153,7 @@ import storyBridge from '~/mixins/storyBridge.vue'
 
 export default {
   components: {
+    HeroSection,
     BorderSection,
     AppTicker,
     SimpleSection,
@@ -224,6 +194,14 @@ export default {
         },
       ],
     }
+  },
+
+  beforeDestroy() {
+    window.scetch && window.scetch.destroy()
+    window.scetch2 && window.scetch2.destroy()
+    window.scetch3 && window.scetch3.destroy()
+
+    this.sa && this.sa.destroy()
   },
 
   async mounted() {
@@ -276,7 +254,7 @@ export default {
       '~/scripts/scroll/ScrollAnimations'
     )
 
-    new ScrollAnimations()
+    this.sa = new ScrollAnimations()
 
     const { SectionScale } = await import('~/scripts/SectionScale')
 

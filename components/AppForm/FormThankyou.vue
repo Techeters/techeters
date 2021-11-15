@@ -34,16 +34,17 @@ import { delayPromise } from '~/scripts/utils/delay'
 const TIME = 5
 export default {
   mixins: [replaceToPixel],
-  props: {
-    visible: {
-      type: Boolean,
-      default: false,
-    },
-  },
+
   data() {
     return {
       timer: TIME,
     }
+  },
+
+  computed: {
+    visible() {
+      return this.$store.state.app.isShowThankyou
+    },
   },
 
   methods: {
@@ -72,7 +73,7 @@ export default {
         overwrite: true,
         onComplete: () => {
           setTimeout(() => {
-            this.$emit('closeThankyou')
+            this.$store.commit('app/setThankyou', false)
           }, TIME * 1000)
           done()
         },

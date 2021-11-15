@@ -43,6 +43,15 @@
   }
 }
 
+.h3 {
+  @include reg;
+  font-size: vw(48);
+  line-height: 1em;
+  @include media('<=#{$br1}') {
+    font-size: size(48, 40);
+  }
+}
+
 .pixel-str {
   @include pixel;
   font-style: normal;
