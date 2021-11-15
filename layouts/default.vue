@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <app-grid />
+    <ui-loader />
     <div id="scroll-container">
       <Nuxt />
       <div id="gl"></div>
@@ -15,7 +16,7 @@ import emitter from 'tiny-emitter/instance'
 
 import AppGrid from '~/components/AppGrid.vue'
 import FormThankyou from '~/components/AppForm/FormThankyou.vue'
-import FormPopup from '~/components/AppForm/FormPopup.vue'
+import FormPopup from '~/components/AppForm/FormWindow.vue'
 export default {
   components: { AppGrid, FormThankyou, FormPopup },
 
