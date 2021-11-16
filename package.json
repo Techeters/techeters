@@ -1,6 +1,6 @@
 {
-  "name": "emotion-nuxt-template",
-  "version": "1.0.1",
+  "name": "techeters",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "nuxt",
