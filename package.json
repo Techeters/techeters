@@ -21,6 +21,7 @@
     "axios": "^0.24.0",
     "core-js": "^3.9.1",
     "gsap": "^3.8.0",
+    "imagesloaded": "^4.1.4",
     "nuxt": "^2.15.3",
     "split-type": "^0.2.5",
     "splitting": "^1.0.6",

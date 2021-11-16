@@ -2,39 +2,7 @@
   <main v-editable="story.content">
     <div id="gl-3"></div>
     <div class="noisy"></div>
-    <div class="hero-wrapper">
-      <div class="home-1__img" />
-      <border-section class="section section--nm hero home-1">
-        <div id="gl-2" />
-        <div class="container home-1__container grid">
-          <div class="h1 home-1__h1 grid">
-            <span
-              data-a-h="1.2, 0.12"
-              class="home-1__h1-line home-1__h1-line--1"
-            >
-              We are
-            </span>
-            <h1 data-a-hl="white" class="home-1__desc">
-              Where technology and design come together
-            </h1>
-            <span
-              class="home-1__h1-line home-1__h1-line--2 glitch"
-              data-alt-text="Techeters"
-              data-a-h="1.2, 0.12"
-              v-html="replaceToPixel('Techeters', 'ech')"
-            ></span>
-            <span
-              data-a-h="1.2, 0.12"
-              class="home-1__h1-line home-1__h1-line--3"
-              >Media</span
-            >
-          </div>
-          <app-button data-a-o class="home-1__btn"
-            >Start your journey</app-button
-          >
-        </div>
-      </border-section>
-    </div>
+    <hero-section />
     <section data-in-view class="section home-2">
       <simple-section :text="secondScreenText" img="/img/1.jpg" />
     </section>
@@ -90,32 +58,34 @@
         </ul>
       </div>
     </section>
-    <border-section class="home-5">
-      <div id="gradient" class="bg-gradient home-5__img" />
-      <div class="container home-5__container">
-        <div class="home-5__h-wrapper grid">
-          <h2
-            class="h2 home-5__h"
-            v-html="replaceToPixel('Services', 'e')"
-          ></h2>
+    <app-sticky>
+      <border-section class="home-5" data-section-scale>
+        <div class="bg-gradient home-5__img" />
+        <div class="container home-5__container" data-section-sticky-scroller>
+          <div class="home-5__h-wrapper grid">
+            <h2
+              class="h2 home-5__h"
+              v-html="replaceToPixel('Services', 'e')"
+            ></h2>
+          </div>
+          <ul class="home-5__items">
+            <li
+              v-for="item in services"
+              :key="item._uid"
+              class="home-5__item home-5-item"
+            >
+              <div class="line line--white home-5-item__line"></div>
+              <div class="home-5-item__content grid">
+                <h3 class="h3 home-5-item__h">
+                  {{ item.title }}
+                </h3>
+                <p class="home-5-item__text">{{ item.text }}</p>
+              </div>
+            </li>
+          </ul>
         </div>
-        <ul class="home-5__items">
-          <li
-            v-for="item in services"
-            :key="item._uid"
-            class="home-5__item home-5-item"
-          >
-            <div class="line line--white home-5-item__line"></div>
-            <div class="home-5-item__content grid">
-              <h3 class="h3 home-5-item__h">
-                {{ item.title }}
-              </h3>
-              <p class="home-5-item__text">{{ item.text }}</p>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </border-section>
+      </border-section>
+    </app-sticky>
     <section class="section home-6" data-in-view>
       <app-ticker
         class="home-6__ticker"
@@ -169,8 +139,10 @@
 <script>
 import emitter from 'tiny-emitter/instance'
 
+import HeroSection from '~/components/HeroSection.vue'
 import AppFooter from '~/components/AppFooter.vue'
 import AppTicker from '~/components/AppTicker.vue'
+import AppSticky from '~/components/AppSticky.vue'
 import BorderSection from '~/components/BorderSection.vue'
 import SimpleSection from '~/components/SimpleSection.vue'
 import replaceToPixel from '~/mixins/replaceToPixel.vue'
@@ -181,69 +153,130 @@ import storyBridge from '~/mixins/storyBridge.vue'
 
 export default {
   components: {
+    HeroSection,
     BorderSection,
     AppTicker,
     SimpleSection,
     AppFooter,
     GlPicture,
+    AppSticky,
   },
   mixins: [replaceToPixel, homeStory, storyBridge],
 
-  async mounted() {
-    const { initImages } = await import('~/scripts/GL/Images/init')
-    if (window.scetch) {
-      initImages()
-    } else {
-      emitter.on('scetchCreated', initImages)
+  head() {
+    const { title, description } = this.story.content.meta[0]
+    return {
+      title,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: description,
+        },
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          content: title,
+        },
+        {
+          hid: 'og:description',
+          name: 'og:title',
+          content: description,
+        },
+        { name: 'twitter:card', content: 'summary_large_image' },
+        {
+          name: 'twitter:title',
+          content: title,
+        },
+        {
+          name: 'twitter:description',
+          content: description,
+        },
+      ],
     }
+  },
 
-    const { Scetch } = await import('@emotionagency/glhtml')
-    const { raf } = await import('@emotionagency/utils')
+  computed: {
+    isLoaded() {
+      return this.$store.state.app.loaded
+    },
+  },
 
-    const { default: Waves } = await import('@/scripts/GL/Waves/Waves')
+  watch: {
+    isLoaded() {
+      if (this.isLoaded) {
+        this.afterLoad()
+      }
+    },
+  },
 
-    window.scetch2 = new Scetch('#gl-2', {
-      dpr: window.devicePixelRatio,
-      nodes: [
-        {
-          $el: document.querySelector('.home-1__img'),
-          Figure: Waves,
-        },
-      ],
-      raf,
-    })
+  beforeDestroy() {
+    window.scetch && window.scetch.destroy()
+    window.scetch2 && window.scetch2.destroy()
+    window.scetch3 && window.scetch3.destroy()
 
-    const { default: Noisy } = await import('@/scripts/GL/Noisy/Noisy')
+    this.sa && this.sa.destroy()
+  },
 
-    const noisy = document.querySelector('.noisy')
+  methods: {
+    async afterLoad() {
+      const { initImages } = await import('~/scripts/GL/Images/init')
+      if (window.scetch) {
+        initImages()
+      } else {
+        emitter.on('scetchCreated', initImages)
+      }
 
-    window.scetch3 = new Scetch('#gl-3', {
-      dpr: window.devicePixelRatio,
-      nodes: [
-        {
-          $el: noisy,
-          Figure: Noisy,
-        },
-      ],
-      raf,
-    })
+      const { Scetch } = await import('@emotionagency/glhtml')
+      const { raf } = await import('@emotionagency/utils')
 
-    const { animations } = await import('~/scripts/animations')
+      const { default: Waves } = await import('@/scripts/GL/Waves/Waves')
 
-    await delayPromise(500)
-    window.scetch2?.figures[0]?.changeIntensity()
+      window.scetch2 = new Scetch('#gl-2', {
+        dpr: window.devicePixelRatio,
+        nodes: [
+          {
+            $el: document.querySelector('.home-1__img'),
+            Figure: Waves,
+          },
+        ],
+        raf,
+      })
 
-    animations(document.querySelector('.hero-wrapper')).in()
+      if (screen.width > 960) {
+        const { default: Noisy } = await import('@/scripts/GL/Noisy/Noisy')
 
-    const { default: ScrollAnimations } = await import(
-      '~/scripts/scroll/ScrollAnimations'
-    )
+        const noisy = document.querySelector('.noisy')
 
-    new ScrollAnimations()
+        window.scetch3 = new Scetch('#gl-3', {
+          dpr: window.devicePixelRatio,
+          nodes: [
+            {
+              $el: noisy,
+              Figure: Noisy,
+            },
+          ],
+          raf,
+        })
+      }
 
-    // const { Gradient } = await import('~/scripts/BgGradient')
+      const { animations } = await import('~/scripts/animations')
 
-    // new Gradient()
+      await delayPromise(500)
+      window.scetch2?.figures[0]?.changeIntensity()
+
+      animations(document.querySelector('.hero-wrapper')).in()
+
+      const { default: ScrollAnimations } = await import(
+        '~/scripts/scroll/ScrollAnimations'
+      )
+
+      this.sa = new ScrollAnimations()
+
+      const { SectionScale } = await import('~/scripts/SectionScale')
+
+      new SectionScale(document.querySelectorAll('[data-section-scale]'))
+    },
   },
 }
 </script>

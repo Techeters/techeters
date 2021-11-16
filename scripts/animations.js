@@ -62,6 +62,16 @@ const animateIn = $el => {
       },
       0.3
     )
+
+    tl.to(
+      el,
+      {
+        duration: 1.5,
+        opacity: 1,
+        ease,
+      },
+      0.3
+    )
   })
 }
 
@@ -119,6 +129,16 @@ const animateOut = $el => {
         onUpdate: () => {
           el.setAttribute('data-a-gl-progress', progress.value)
         },
+      },
+      0.3
+    )
+
+    tl.to(
+      el,
+      {
+        duration: 1.5,
+        opacity: 0,
+        ease,
       },
       0.3
     )

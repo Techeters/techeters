@@ -16,7 +16,6 @@ export default class Waves extends Figure {
     this.onClick = this.onClick.bind(this)
     this.onMousemove = this.onMousemove.bind(this)
 
-    document.body.addEventListener('click', this.onClick)
     window.addEventListener('mousemove', this.onMousemove)
   }
 
@@ -27,7 +26,7 @@ export default class Waves extends Figure {
   createMaterial() {
     const uniforms = {
       uAlpha: { value: 0 },
-      uIntensity: { value: 5 },
+      uIntensity: { value: 7 },
       uMouse: { type: 'v2', value: new Vec2(0, 0) },
     }
 
@@ -38,10 +37,10 @@ export default class Waves extends Figure {
     this.changeIntensity()
   }
 
-  changeIntensity() {
+  changeIntensity(value) {
     gsap.to(this.material.uniforms.uIntensity, {
       duration: 2.5,
-      value: 1,
+      value: value ?? 1,
       ease: 'power2.inOut',
     })
     gsap.to(this.material.uniforms.uAlpha, {

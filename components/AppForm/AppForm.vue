@@ -162,7 +162,8 @@ export default {
       this.error = false
     },
     showThankyou() {
-      this.$emit('showThankyou')
+      this.$store.commit('app/setThankyou', true)
+      this.$store.commit('app/setPopup', false)
     },
   },
 }

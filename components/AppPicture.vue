@@ -2,7 +2,14 @@
   <div class="picture-wrapper">
     <div class="app-picture">
       <picture>
-        <img ref="image" :src="url" alt="" class="app-img" v-bind="imgData" />
+        <img
+          ref="image"
+          :src="url"
+          alt=""
+          class="app-img"
+          v-bind="imgData"
+          data-pli
+        />
         <source v-if="isWebp" :srcset="getWebpUrl" />
       </picture>
     </div>
