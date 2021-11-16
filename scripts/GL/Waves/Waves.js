@@ -51,8 +51,8 @@ export default class Waves extends Figure {
   }
 
   get isInView() {
-    const top = this.$el.parentElement.getBoundingClientRect().y
-    return -top < window.innerHeight
+    const { y, height } = this.$el.parentElement.getBoundingClientRect()
+    return -y < height
   }
 
   resize() {
