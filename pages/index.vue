@@ -196,6 +196,20 @@ export default {
     }
   },
 
+  computed: {
+    isLoaded() {
+      return this.$store.state.app.loaded
+    },
+  },
+
+  watch: {
+    isLoaded() {
+      if (this.isLoaded) {
+        this.afterLoad()
+      }
+    },
+  },
+
   beforeDestroy() {
     window.scetch && window.scetch.destroy()
     window.scetch2 && window.scetch2.destroy()
@@ -204,61 +218,65 @@ export default {
     this.sa && this.sa.destroy()
   },
 
-  async mounted() {
-    const { initImages } = await import('~/scripts/GL/Images/init')
-    if (window.scetch) {
-      initImages()
-    } else {
-      emitter.on('scetchCreated', initImages)
-    }
+  methods: {
+    async afterLoad() {
+      const { initImages } = await import('~/scripts/GL/Images/init')
+      if (window.scetch) {
+        initImages()
+      } else {
+        emitter.on('scetchCreated', initImages)
+      }
 
-    const { Scetch } = await import('@emotionagency/glhtml')
-    const { raf } = await import('@emotionagency/utils')
+      const { Scetch } = await import('@emotionagency/glhtml')
+      const { raf } = await import('@emotionagency/utils')
 
-    const { default: Waves } = await import('@/scripts/GL/Waves/Waves')
+      const { default: Waves } = await import('@/scripts/GL/Waves/Waves')
 
-    window.scetch2 = new Scetch('#gl-2', {
-      dpr: window.devicePixelRatio,
-      nodes: [
-        {
-          $el: document.querySelector('.home-1__img'),
-          Figure: Waves,
-        },
-      ],
-      raf,
-    })
+      window.scetch2 = new Scetch('#gl-2', {
+        dpr: window.devicePixelRatio,
+        nodes: [
+          {
+            $el: document.querySelector('.home-1__img'),
+            Figure: Waves,
+          },
+        ],
+        raf,
+      })
 
-    const { default: Noisy } = await import('@/scripts/GL/Noisy/Noisy')
+      if (screen.width > 960) {
+        const { default: Noisy } = await import('@/scripts/GL/Noisy/Noisy')
 
-    const noisy = document.querySelector('.noisy')
+        const noisy = document.querySelector('.noisy')
 
-    window.scetch3 = new Scetch('#gl-3', {
-      dpr: window.devicePixelRatio,
-      nodes: [
-        {
-          $el: noisy,
-          Figure: Noisy,
-        },
-      ],
-      raf,
-    })
+        window.scetch3 = new Scetch('#gl-3', {
+          dpr: window.devicePixelRatio,
+          nodes: [
+            {
+              $el: noisy,
+              Figure: Noisy,
+            },
+          ],
+          raf,
+        })
+      }
 
-    const { animations } = await import('~/scripts/animations')
+      const { animations } = await import('~/scripts/animations')
 
-    await delayPromise(500)
-    window.scetch2?.figures[0]?.changeIntensity()
+      await delayPromise(500)
+      window.scetch2?.figures[0]?.changeIntensity()
 
-    animations(document.querySelector('.hero-wrapper')).in()
+      animations(document.querySelector('.hero-wrapper')).in()
 
-    const { default: ScrollAnimations } = await import(
-      '~/scripts/scroll/ScrollAnimations'
-    )
+      const { default: ScrollAnimations } = await import(
+        '~/scripts/scroll/ScrollAnimations'
+      )
 
-    this.sa = new ScrollAnimations()
+      this.sa = new ScrollAnimations()
 
-    const { SectionScale } = await import('~/scripts/SectionScale')
+      const { SectionScale } = await import('~/scripts/SectionScale')
 
-    new SectionScale(document.querySelectorAll('[data-section-scale]'))
+      new SectionScale(document.querySelectorAll('[data-section-scale]'))
+    },
   },
 }
 </script>

@@ -34,38 +34,38 @@
 </template>
 
 <script>
-import gsap from 'gsap'
+// import gsap from 'gsap'
 import replaceToPixel from '~/mixins/replaceToPixel.vue'
-import { delayPromise } from '~/scripts/utils/delay'
+// import { delayPromise } from '~/scripts/utils/delay'
 export default {
   mixins: [replaceToPixel],
 
-  methods: {
-    async disolve() {
-      const { animations } = await import('~/scripts/animations')
-      const tl = gsap.timeline()
+  // methods: {
+  //   async disolve() {
+  //     const { animations } = await import('~/scripts/animations')
+  //     const tl = gsap.timeline()
 
-      window.scetch2?.figures[0]?.changeIntensity(20)
+  //     window.scetch2?.figures[0]?.changeIntensity(20)
 
-      tl.to(
-        this.$el,
-        {
-          duration: 2,
-          opacity: 0,
-          filter: 'blur(100px)',
-          ease: 'power2.inOut',
-          onComplete: () => {
-            window.ss && (window.ss.isFixed = false)
-            window.scetch2?.destroy()
-            this.$el.style.display = 'none'
-          },
-        },
-        0.2
-      )
+  //     tl.to(
+  //       this.$el,
+  //       {
+  //         duration: 2,
+  //         opacity: 0,
+  //         filter: 'blur(100px)',
+  //         ease: 'power2.inOut',
+  //         onComplete: () => {
+  //           window.ss && (window.ss.isFixed = false)
+  //           window.scetch2?.destroy()
+  //           this.$el.style.display = 'none'
+  //         },
+  //       },
+  //       0.2
+  //     )
 
-      await delayPromise(1200)
-      animations(document.querySelector('[data-ha]')).in()
-    },
-  },
+  //     await delayPromise(1200)
+  //     animations(document.querySelector('[data-ha]')).in()
+  //   },
+  // },
 }
 </script>

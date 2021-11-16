@@ -86,7 +86,7 @@ export class Ticker {
 
   transform($el, pos) {
     $el.style.transform = `${matrixTransform({ move: { x: pos } })} skewX(${
-      this.velocity / 50
+      this.velocity / 70
     }deg)`
     $el.style.willChange = 'transform'
   }

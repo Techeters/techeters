@@ -26,7 +26,7 @@ export default class Waves extends Figure {
   createMaterial() {
     const uniforms = {
       uAlpha: { value: 0 },
-      uIntensity: { value: 5 },
+      uIntensity: { value: 7 },
       uMouse: { type: 'v2', value: new Vec2(0, 0) },
     }
 
