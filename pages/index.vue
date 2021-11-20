@@ -233,7 +233,7 @@ export default {
       const { default: Waves } = await import('@/scripts/GL/Waves/Waves')
 
       window.scetch2 = new Scetch('#gl-2', {
-        dpr: window.devicePixelRatio,
+        dpr: 1,
         nodes: [
           {
             $el: document.querySelector('.home-1__img'),

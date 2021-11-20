@@ -1,5 +1,7 @@
+@use 'sass:math';
+
 @function em($size, $context: 16) {
-  @return ($size/$context) * 1em;
+  @return (math.div($size, $context)) * 1em;
 }
 
 @function img-url($image) {
@@ -29,16 +31,16 @@
 }
 
 @function vw($px) {
-  $inVW: $px / 1920 * 100;
+  $inVW: math.div($px, 1920) * 100;
   @return #{$inVW}vw;
 }
 
 @function vh($px) {
-  $inVH: $px / 1080 * 100;
+  $inVH: math.div($px, 1080) * 100;
   @return #{$inVH}vh;
 }
 
 @function toimg($width, $height) {
-  $resolution: ($height / $width) * 100;
+  $resolution: (math.div($height, $width)) * 100;
   @return #{$resolution + '%'};
 }

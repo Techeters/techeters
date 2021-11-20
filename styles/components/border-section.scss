@@ -34,6 +34,15 @@
   > .picture-wrapper {
     border-radius: 0px;
   }
+  > *,
+  > *::after {
+    border-radius: var(--border-r);
+    height: calc(var(--vh) - var(--margin) * 2);
+    @include media('<=#{$br3}') {
+      border-radius: 0px;
+      min-height: var(--vh);
+    }
+  }
 }
 
 .border-section {

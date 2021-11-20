@@ -42,7 +42,7 @@
     "gulp-ttf2woff2": "3.0.0",
     "gulp-util": "^3.0.8",
     "gulp-webp": "^4.0.1",
-    "node-sass": "^5.0.0",
+    "sass": "^1.43.4",
     "prettier": "^2.2.1",
     "sass-loader": "^10.1.1",
     "webpack-glsl-loader": "^1.0.1"
