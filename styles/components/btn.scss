@@ -11,6 +11,10 @@
   width: vw(186);
   height: vw(186);
   background-color: transparent;
+  @include media('>#{$br1}') {
+    min-width: 140px;
+    min-height: 140px;
+  }
   @include media('<=#{$br1}') {
     width: 186px;
     height: 186px;

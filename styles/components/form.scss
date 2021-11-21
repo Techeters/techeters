@@ -100,7 +100,7 @@ $red: var(--red);
 
 .label {
   position: absolute;
-  font-size: vw(18);
+  font-size: 18px;
   left: 0;
   top: 3px;
   line-height: 1em;
@@ -109,19 +109,20 @@ $red: var(--red);
   transition-duration: 0.3s;
   transition-timing-function: ease;
   @include media('<=#{$ls}') {
-    font-size: inherit;
+    font-size: 12px;
   }
 }
 
 .input-validate {
   color: $red;
   font-size: 14px;
+  display: block;
   line-height: 1em;
   pointer-events: none;
   opacity: 0;
   visibility: hidden;
+  margin-top: 8px;
   transition: opacity 0.3s ease, visibility 0.3s ease;
-  left: 0;
 }
 
 textarea {
