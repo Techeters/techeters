@@ -97,6 +97,8 @@ body {
   .char {
     display: inline-block;
     transform: scaleX(2);
+    transform-origin: 50% 50%;
+    transform-box: fill-box;
     opacity: 0;
     will-change: transform, filter;
     filter: blur(40px);

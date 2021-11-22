@@ -12,11 +12,12 @@
             Where technology and design come together
           </h1>
           <span
-            class="home-1__h1-line home-1__h1-line--2 glitch"
+            class="home-1__h1-line home-1__h1-line--2 chars splitting splitted"
             data-alt-text="Techeters"
             data-a-h="1.2, 0.12"
-            v-html="replaceToPixel('Techeters', 'ech')"
-          ></span>
+          >
+            <animate-logo />
+          </span>
           <span data-a-h="1.2, 0.12" class="home-1__h1-line home-1__h1-line--3"
             >Media</span
           >
@@ -34,38 +35,11 @@
 </template>
 
 <script>
-// import gsap from 'gsap'
+import AnimateLogo from './AnimateLogo.vue'
 import replaceToPixel from '~/mixins/replaceToPixel.vue'
-// import { delayPromise } from '~/scripts/utils/delay'
+
 export default {
+  components: { AnimateLogo },
   mixins: [replaceToPixel],
-
-  // methods: {
-  //   async disolve() {
-  //     const { animations } = await import('~/scripts/animations')
-  //     const tl = gsap.timeline()
-
-  //     window.scetch2?.figures[0]?.changeIntensity(20)
-
-  //     tl.to(
-  //       this.$el,
-  //       {
-  //         duration: 2,
-  //         opacity: 0,
-  //         filter: 'blur(100px)',
-  //         ease: 'power2.inOut',
-  //         onComplete: () => {
-  //           window.ss && (window.ss.isFixed = false)
-  //           window.scetch2?.destroy()
-  //           this.$el.style.display = 'none'
-  //         },
-  //       },
-  //       0.2
-  //     )
-
-  //     await delayPromise(1200)
-  //     animations(document.querySelector('[data-ha]')).in()
-  //   },
-  // },
 }
 </script>
