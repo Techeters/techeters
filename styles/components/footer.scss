@@ -97,6 +97,13 @@
   svg {
     display: block;
     max-width: 100%;
+    width: 100%;
+    height: 100%;
+  }
+  @include media('>#{$br1}') {
+    margin-top: -0.5vw;
+    width: vw(152);
+    height: vw(31);
   }
 }
 
