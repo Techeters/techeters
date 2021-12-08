@@ -14,7 +14,9 @@
   }
   &.autoheight {
     .border-section__wrapper {
-      height: 100%;
+      @include media('>#{$br1}') {
+        height: 100%;
+      }
     }
     .container {
       height: 100%;
