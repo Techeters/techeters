@@ -30,7 +30,7 @@
 import AppButton from '../AppButton.vue'
 import AppInput from './AppInput.vue'
 
-const URL = 'https://emotion-agency.com/drafts/techeters-api/mail/mail.php'
+const URL = 'https://service.emotion-agency.com/techeters-api/mail/mail.php'
 
 export default {
   components: { AppInput, AppButton },
