@@ -137,6 +137,7 @@ export default {
         await fetch(URL, {
           method: 'POST',
           body: formData,
+          mode: 'no-cors',
         })
         this.showThankyou()
         this.resetForm()
